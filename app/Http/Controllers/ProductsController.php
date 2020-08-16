@@ -27,7 +27,7 @@ class ProductsController extends Controller
 
     public function store(Request $request){
         
-        return view ('index',[ Products::addProd($request)]);
+        return view ('index',['message'=> Products::addProd($request)]);
     }
     public function delete($product_id){
         

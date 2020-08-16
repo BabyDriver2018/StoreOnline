@@ -55,7 +55,7 @@
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
                     </li>
                     <li class="nav-item active px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/AddProducts') }}">Agregar
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
                             Productos</a>
                     </li>
                 </ul>

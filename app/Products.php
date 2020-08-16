@@ -14,7 +14,7 @@ class Products extends Model
 
     public static function index(){
         $allProd = Products::all();
-
+        //dd($allProd);
         return $allProd->toarray();
     }
     public static function indexcategory(){
@@ -36,14 +36,10 @@ class Products extends Model
             $newProd->image = '';
         }
         $newProd->idcategory = $request->input('category');
-        $newProd->save();
-        $allproduct = Products::all();
-        $request->input('name');
-        $request->input('description');
-        $request->input('price');
-        $request->input('stock');
         
-        return $allproduct->toarray();
+        $newProd->save();
+        
+        return 'El producto se agrego con exito!';
     }
     //Method for validate iamge
     public static function verifImage($request){

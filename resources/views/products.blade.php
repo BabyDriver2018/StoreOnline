@@ -63,7 +63,8 @@
               <span class="section-heading-upper"><?= $allproduc['name'] ?>
                 <button onclick="window.location='../public/products/<?= $allproduc['id']?>/delete'" name="delete" method='get' type="button" class="btn btn-danger"  ><i class="fa fa-trash"></i> Eliminar</button>
               </span>
-              <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory']]['name']?>- S/<?= $allproduc['price']?></span>
+                <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory']-1]['name']?> - S/<?= $allproduc['price']?>
+              </span>
               
             </h2>
           </div>
