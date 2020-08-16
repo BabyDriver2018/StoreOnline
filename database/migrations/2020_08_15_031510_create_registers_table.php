@@ -17,13 +17,13 @@ class CreateRegistersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->float('price');
-            $table->string('genero');
-            $table->integer('cantidad');
+            $table->integer('count');
             $table->float('total');
             $table->Integer('idproduct')->unsigned();
             $table->foreign('idproduct')->references('id')->on('products')->onDelete('cascade');
             $table->Integer('idcategory')->unsigned();
             $table->foreign('idcategory')->references('id')->on('category')->onDelete('cascade');
+            $table->string('fecha');
             
         });
     }

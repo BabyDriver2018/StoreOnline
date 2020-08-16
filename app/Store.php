@@ -8,6 +8,6 @@ class Store extends Model
 {
     //
     public static function index(){
-        return "store";
+        return "adminComponent.store";
     }
 }

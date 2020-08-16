@@ -17,12 +17,12 @@ class AddProductsController extends Controller
     public function addproducts()
     {
         //RETORNAMOS A LA VISTA ADDPRODUCTS
-        return view('addproducts',["category" => Category::index()]);
+        return view('adminComponent.addproducts',["category" => Category::index()]);
     }
 
     public function store(Request $request){
         
-        return view ('products',['allprod'=> Products::addProd($request)]);
+        return view ('adminComponent.products',['allprod'=> Products::addProd($request)]);
     }
     
 }

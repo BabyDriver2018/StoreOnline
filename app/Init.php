@@ -8,6 +8,6 @@ class Init extends Model
 {
     //
     public static function index(){
-        return "index";
+        return "adminComponent.index";
     }
 }

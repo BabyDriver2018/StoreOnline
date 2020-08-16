@@ -17,23 +17,29 @@ class ProductsController extends Controller
     public function products()
     {
         //
-        return view('products',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
+        return view('adminComponent.products',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
     }
     public function addproducts()
     {
         //RETORNAMOS A LA VISTA ADDPRODUCTS
-        return view('addproducts',["category" => Category::index()]);
+        return view('adminComponent.addproducts',["category" => Category::index()]);
     }
 
     public function store(Request $request){
         
-        return view ('index',['message'=> Products::addProd($request)]);
+        return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
     public function delete($product_id){
         
         //dd(Products::find($product_id));
-        return view ('index',[ 'message'=>Products::deleteProd($product_id)]);
+        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product_id)]);
     }
 
+    //method for buy product
+    public function showProd($productbuy_id){
+        
+        return view('buyclient',['product'=>Products::showprod($productbuy_id)]);
+
+    }
     
 }

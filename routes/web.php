@@ -23,3 +23,11 @@ Route::get('/products/add', 'ProductsController@addproducts');
 //rute for add productos
 Route::post('/products/addProd','ProductsController@store');
 Route::get('/products/{product_id}/delete','ProductsController@delete');
+
+// add teste buy 
+
+Route::get('/client','ClientController@index');
+Route::get('/client/{productbuy_id}/buy','ProductsController@showProd');
+
+//route add registros
+Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Products;
 use App\Category;
-use App\Register;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class RegisterController extends Controller
     public function index()
     {
         //
-        return view('adminComponent.register',['allregister'=>Register::index()]);
+        return view('client',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
     }
 
     /**
@@ -36,18 +36,18 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$product_id,$idcategory)
+    public function store(Request $request)
     {
-        return view('adminComponent.index',['message'=>Register::addregister($request,$product_id,$idcategory)]);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Register  $register
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Register $register)
+    public function show(Client $client)
     {
         //
     }
@@ -55,10 +55,10 @@ class RegisterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Register  $register
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Register $register)
+    public function edit(Client $client)
     {
         //
     }
@@ -67,10 +67,10 @@ class RegisterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Register  $register
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Register $register)
+    public function update(Request $request, Client $client)
     {
         //
     }
@@ -78,10 +78,10 @@ class RegisterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Register  $register
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Register $register)
+    public function destroy(Client $client)
     {
         //
     }

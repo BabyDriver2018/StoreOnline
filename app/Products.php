@@ -54,4 +54,9 @@ class Products extends Model
         Products::destroy($product_id);
         return 'El Productos se Elimino con Exito!';
     }
+    public static function showprod($productbuy_id){
+        $product=Products::find($productbuy_id);
+        
+        return $product->toarray();
+    }
 }
