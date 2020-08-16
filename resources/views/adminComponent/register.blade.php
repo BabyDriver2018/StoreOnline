@@ -93,7 +93,7 @@
                                                 <td>{{ $allregisters['fecha'] }}</td>
                                             </tr>
                                         @endforeach
-                                        <th scope="row">TOTAL</td>
+                                        <th scope="row">VENTAS TOTALES: </td>
                                     <tbody>
 
                                 </table>
