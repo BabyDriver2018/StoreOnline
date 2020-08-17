@@ -53,10 +53,8 @@ class Register extends Model
     }
     public static function registermonth($request){
         
-        $newregister = Register::all()->where(
-                                    ['month','=',$request->month],
-                                    ['year','=',$request->year]);
-        dd($newregister);
+        $newregister = Register::all()->where('month','=',$request->month)->where('year','=',$request->year);
+        //dd($newregister);
         return $newregister->toarray();
     }
 }

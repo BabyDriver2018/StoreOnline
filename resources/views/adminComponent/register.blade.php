@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Mes:</label>
-                                    <select class="custom-select my-2 mr-sm-2" name="month" id="month">
+                                    <select class="custom-select my-2 mr-sm-2" name="month" id="month" required>
                                         <!-- Show all month of products -->
                                         <option value="01">ENERO</option>
                                         <option value="02">FEBRERO</option>
@@ -96,7 +96,7 @@
                                         <option value="05">MAYO</option>
                                         <option value="06">JUNIO</option>
                                         <option value="07">JULIO</option>
-                                        <option value="08" >AGOSTO</option>
+                                        <option value="08" selected >AGOSTO</option>
                                         <option value="09">SEPTIEMPRE</option>
                                         <option value="10">OCTUBRE</option>
                                         <option value="11">NOVIEMBRE</option>
