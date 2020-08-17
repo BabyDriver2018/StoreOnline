@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title></title>
+    <title>LEYKER</title>
 
     <!-- Bootstrap core CSS -->
     <link type="text/css" href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
@@ -70,6 +70,36 @@
                             <h2 class="section-heading mb-4">
                                 <span class="section-heading-lower">Registro de Ventas</span>
                             </h2>
+                            <form action="../public/register/month" method="post" class="form-horizontal">
+                                {{ csrf_field() }}
+                                {{ method_field('PATCH') }}
+                                {{ method_field('POST') }}
+                                <div class="form-group">
+                                    <!-- Se tiene q modificar con una base de datos -->
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categoria:</label>
+                                    <select class="custom-select my-2 mr-sm-2" name="month" id="month">
+                                        <!-- Show all month of products -->
+                                        <option value="01">ENERO</option>
+                                        <option value="02">FEBRERO</option>
+                                        <option value="03">MARZO</option>
+                                        <option value="04">ABRIL</option>
+                                        <option value="05">MAYO</option>
+                                        <option value="06">JUNIO</option>
+                                        <option value="07">JULIO</option>
+                                        <option value="08">AGOSTO</option>
+                                        <option value="09">SEPTIEMPRE</option>
+                                        <option value="10">OCTUBRE</option>
+                                        <option value="11">NOVIEMBRE</option>
+                                        <option value="12">DICIEMBRE</option>
+                                        <!-- end show month -->
+                                    </select>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary"> Buscar</button>
+                                    </div>
+                                </div>
+                            </form>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -90,10 +120,10 @@
                                                 <td>{{ $allregisters['price'] }}</td>
                                                 <td>{{ $allregisters['count'] }}</td>
                                                 <td>{{ $allregisters['total'] }}</td>
-                                                <td>{{ $allregisters['fecha'] }}</td>
+                                                <td>{{ $allregisters['month'] }}</td>
                                             </tr>
                                         @endforeach
-                                        <th scope="row">VENTAS TOTALES: </td>
+                                        
                                     <tbody>
 
                                 </table>

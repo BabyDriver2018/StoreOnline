@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+    <title>LEYKER</title>
 
     <!-- Bootstrap core CSS -->
     <link type="text/css" href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">

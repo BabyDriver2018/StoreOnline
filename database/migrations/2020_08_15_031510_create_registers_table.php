@@ -23,7 +23,7 @@ class CreateRegistersTable extends Migration
             $table->foreign('idproduct')->references('id')->on('products')->onDelete('cascade');
             $table->Integer('idcategory')->unsigned();
             $table->foreign('idcategory')->references('id')->on('category')->onDelete('cascade');
-            $table->string('fecha');
+            $table->string('month');
             
         });
     }

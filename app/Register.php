@@ -33,8 +33,8 @@ class Register extends Model
             $newregister->idproduct = $product_id;
             $newregister->idcategory = $idcategory;
                 $date = Carbon::now();
-                $date = $date->format('d-m-Y');
-            $newregister->fecha = $date;
+                $date = $date->format('m');
+            $newregister->month = $date;
             $newregister->save();
             return "Se registro la compra con exito!";
         }
@@ -42,5 +42,10 @@ class Register extends Model
             return "Algo anda mal!!";
         }
 
+    }
+    public static function registermont($request){
+        
+        $newregister = Register::all()->where('month','=',$request->month);
+        return $newregister->toarray();
     }
 }

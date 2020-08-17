@@ -31,3 +31,4 @@ Route::get('/client/{productbuy_id}/buy','ProductsController@showProd');
 
 //route add registros
 Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');
+Route::post('/register/month','RegisterController@indexSelect');
