@@ -28,8 +28,8 @@ class RegisterController extends Controller
     public function indexSelect(Request $request)
     {
         //Buscar Todos los registro que tenga la fecha del mes
-        //dd($request->month);
-        return view('adminComponent.register',['allregister'=>Register::registermont($request)]);
+        
+        return view('adminComponent.register',['allregister'=>Register::registermonth($request)]);
 
     }
 

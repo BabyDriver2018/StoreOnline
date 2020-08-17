@@ -21,7 +21,10 @@
 
     <!-- Custom styles for this template -->
     <link type="text/css" href="{{ asset('css/business-casual.css') }}" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -74,9 +77,16 @@
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 {{ method_field('POST') }}
+                                
                                 <div class="form-group">
-                                    <!-- Se tiene q modificar con una base de datos -->
-                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categoria:</label>
+                                    <label class="control-label col-sm-20">Año:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number"value="2020" min="2020" max="2024" class="form-control" name="year"
+                                            placeholder="Ingrese el año que desea mostrar" pattern="[0-9]{4,4}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Mes:</label>
                                     <select class="custom-select my-2 mr-sm-2" name="month" id="month">
                                         <!-- Show all month of products -->
                                         <option value="01">ENERO</option>
@@ -86,7 +96,7 @@
                                         <option value="05">MAYO</option>
                                         <option value="06">JUNIO</option>
                                         <option value="07">JULIO</option>
-                                        <option value="08">AGOSTO</option>
+                                        <option value="08" >AGOSTO</option>
                                         <option value="09">SEPTIEMPRE</option>
                                         <option value="10">OCTUBRE</option>
                                         <option value="11">NOVIEMBRE</option>
@@ -120,7 +130,7 @@
                                                 <td>{{ $allregisters['price'] }}</td>
                                                 <td>{{ $allregisters['count'] }}</td>
                                                 <td>{{ $allregisters['total'] }}</td>
-                                                <td>{{ $allregisters['month'] }}</td>
+                                                <td>{{ $allregisters['day'] }}-{{ $allregisters['month'] }}-{{ $allregisters['year'] }}</td>
                                             </tr>
                                         @endforeach
                                         

@@ -13,6 +13,7 @@ class Register extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['id', 'name', 'price','genero', 'cantidad','total','idproduct','idcategory'];
     public $timestamps=false;
+
     public static function index(){
         $allregister = Register::all();
         return $allregister->toarray();
@@ -32,9 +33,16 @@ class Register extends Model
             $newregister->total =($newproduct['price'])*($request->input('cantidad'));
             $newregister->idproduct = $product_id;
             $newregister->idcategory = $idcategory;
-                $date = Carbon::now();
-                $date = $date->format('m');
-            $newregister->month = $date;
+                $month = Carbon::now();
+                $month = $month->format('m');
+                $year = Carbon::now();
+                $year = $year->format('Y');
+                $day = Carbon::now();
+                $day = $day->format('d');
+            $newregister->day = $day;
+            $newregister->month = $month;
+            $newregister->year = $year;
+
             $newregister->save();
             return "Se registro la compra con exito!";
         }
@@ -43,9 +51,12 @@ class Register extends Model
         }
 
     }
-    public static function registermont($request){
+    public static function registermonth($request){
         
-        $newregister = Register::all()->where('month','=',$request->month);
+        $newregister = Register::all()->where(
+                                    ['month','=',$request->month],
+                                    ['year','=',$request->year]);
+        dd($newregister);
         return $newregister->toarray();
     }
 }
