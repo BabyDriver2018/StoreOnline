@@ -26,6 +26,8 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -148,6 +150,14 @@
     <footer class="footer text-faded text-center py-5">
         <div class="container">
             <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+
+        </div>
+        <!-- Footer Social Icons -->
+        <div class="container">
+            <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+            
+            <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
+            
         </div>
     </footer>
 

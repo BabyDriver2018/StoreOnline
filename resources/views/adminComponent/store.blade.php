@@ -125,6 +125,13 @@
         <div class="container">
             <p class="m-0 small">Copyright &copy; Your Website 2018</p>
         </div>
+        <!-- Footer Social Icons -->
+        <div class="container">
+            <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+            
+            <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
+            
+        </div>
     </footer>
 
     <!-- Bootstrap core JavaScript -->
