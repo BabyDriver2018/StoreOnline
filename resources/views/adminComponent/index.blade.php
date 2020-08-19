@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -25,7 +26,8 @@
 </head>
 
 <body>
-    <!-- Modal -->
+    
+    <!-- Modal Message Init-->
     <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -60,7 +62,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
-            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{{ url('/home') }}">LYKER</a>
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                href="{{ url('/home') }}">LYKER</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -68,12 +71,12 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/index') }}">Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/register') }}">Registro de
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro de
                             Ventas</a>
                     </li>
                     <li class="nav-item px-lg-4">
@@ -86,7 +89,17 @@
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
                             Productos</a>
                     </li>
+
+                    <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                        {{ __('Cerrar Sesión') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -125,10 +138,10 @@
         </div>
         <!-- Footer Social Icons -->
         <div class="container">
-            <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
-            
-            <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
-            
+            <a href="https://www.facebook.com/LeykerPeru/">
+                <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+            </a>
+
         </div>
     </footer>
 

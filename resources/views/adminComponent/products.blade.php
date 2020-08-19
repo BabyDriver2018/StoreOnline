@@ -1,8 +1,9 @@
+@extends('layouts.app')
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -25,102 +26,118 @@
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{{ url('/home') }}">LYKER</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/register') }}">Registro de
-                            Ventas</a>
-                    </li>
-                    <li class="nav-item active px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
-                    </li>
-                    <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
-                    </li>
-                    <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
-                            Productos</a>
-                    </li>
-                </ul>
+    <div class="card-body">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
             </div>
-        </div>
-    </nav>
-    @if (!empty($allprod)){
-        @foreach ($allprod as $allproduc)
-            <section class="page-section">
-                <div class="container">
-                    <div class="product-item">
-                        <div class="product-item-title d-flex">
-                            <div class="bg-faded p-5 d-flex ml-auto rounded">
-                                <h2 class="section-heading mb-0">
+        @endif
 
-                                    <span class="section-heading-upper"><?= $allproduc['name'] ?>
-                                    <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" name="delete" method='get' type="button" class="btn btn-danger"  ><i class="fa fa-trash"></i> Eliminar</button>
-                                  </span>
-                                    <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory'] - 1]['name'] ?> 
-                                  </span>
-                                  <span class="section-heading-lower">Precio: S/<?= $allproduc['price'] ?>
-                                  </span>
-                                  <span class="section-heading-lower">Stock: <?= $allproduc['stock'] ?>
-                                  </span>
-                                </h2>
-                              </div>
-                              
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                    href="{{ url('/home') }}">LYKER</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
+                                de
+                                Ventas</a>
+                        </li>
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
+                        </li>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
+                                Productos</a>
+                        </li>
+                        <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                            {{ __('Cerrar Sesión') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @if (!empty($allprod)){
+            @foreach ($allprod as $allproduc)
+                <section class="page-section">
+                    <div class="container">
+                        <div class="product-item">
+                            <div class="product-item-title d-flex">
+                                <div class="bg-faded p-5 d-flex ml-auto rounded">
+                                    <h2 class="section-heading mb-0">
+
+                                        <span class="section-heading-upper"><?= $allproduc['name'] ?>
+                                  <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" name="delete" method='get' type="button" class="btn btn-danger"  ><i class="fa fa-trash"></i> Eliminar</button>
+                                </span>
+                                  <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory'] - 1]['name'] ?> 
+                                </span>
+                                <span class="section-heading-lower">Precio: S/<?= $allproduc['price'] ?>
+                                </span>
+                                <span class="section-heading-lower">Stock: <?= $allproduc['stock'] ?>
+                                </span>
+                              </h2>
                             </div>
-                            <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="596" height="460"/>
-                            <div class="product-item-description d-flex mr-auto">
-                              <div class="bg-faded p-5 rounded">
-                                <h2 class="section-heading mb-4">
-                                  <span class="section-heading-lower">Descripción</span>
-                                </h2>
-                                  <p class="mb-0"><?= $allproduc['description'] ?></p>
-                              </div>
+                            
+                          </div>
+                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="596" height="460"/>
+                          <div class="product-item-description d-flex mr-auto">
+                            <div class="bg-faded p-5 rounded">
+                              <h2 class="section-heading mb-4">
+                                <span class="section-heading-lower">Descripción</span>
+                              </h2>
+                                <p class="mb-0"><?= $allproduc['description'] ?></p>
                             </div>
                           </div>
                         </div>
-  </section>
-  @endforeach
+                      </div>
+</section>
+@endforeach
 }
 @else{
-    <h1 class="text-center navbar-nav mx-auto " >
-      
-      No hay productos
-    </h1>
+  <h1 class="text-center navbar-nav mx-auto " >
+    
+    No hay productos
+  </h1>
 
-  }
-  @endif
+}
+@endif
 
-  <footer class="footer text-faded text-center py-5">
-    <div class="container">
-      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
-    </div>
-    <!-- Footer Social Icons -->
-    <div class="container">
-      <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
-      
-      <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
-      
+<footer class="footer text-faded text-center py-5">
+  <div class="container">
+    <p class="m-0 small">Copyright &copy; Your Website 2020</p>
   </div>
-  </footer>
+  <!-- Footer Social Icons -->
+  <div class="container">
+    <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+    
+    <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
+    
+</div>
+</footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{ asset('jquery/jquery.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
-
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
+</div>
 </body>
 
 </html>

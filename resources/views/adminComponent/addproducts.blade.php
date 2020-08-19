@@ -43,12 +43,12 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/index') }}">Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/register') }}">Registro de
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro de
                             Ventas</a>
                     </li>
                     <li class="nav-item px-lg-4">
@@ -61,6 +61,14 @@
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
                             Productos</a>
                     </li>
+                    <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                        {{ __('Cerrar Sesión') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </ul>
             </div>
         </div>
