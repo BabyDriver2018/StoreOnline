@@ -41,6 +41,7 @@ class ProductsController extends Controller
 
     //method for buy product
     public function showProd($productbuy_id){
+        //hola
 
         return view('clientComponent.client',['product'=>Products::showprod($productbuy_id)]);
 
