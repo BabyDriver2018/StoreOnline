@@ -36,8 +36,6 @@ class ProductsController extends Controller
     public function delete($product_id){
 
         //dd(Products::find($product_id));
-
-        
         return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product_id)]);
     }
 
