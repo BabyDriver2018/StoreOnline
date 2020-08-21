@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +24,6 @@
 </head>
 
 <body>
-    <div class="card-body">
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
@@ -98,7 +89,7 @@
                             </div>
                             
                           </div>
-                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="596" height="460"/>
+                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="480" height="300"/>
                           <div class="product-item-description d-flex mr-auto">
                             <div class="bg-faded p-5 rounded">
                               <h2 class="section-heading mb-4">
@@ -127,17 +118,16 @@
   </div>
   <!-- Footer Social Icons -->
   <div class="container">
-    <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
-    
-    <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
-    
+    <a href="https://www.facebook.com/LeykerPeru/">
+        <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+    </a>
+
 </div>
 </footer>
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{ asset('jquery/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
-</div>
 </body>
 
 </html>

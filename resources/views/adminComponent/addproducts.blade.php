@@ -162,10 +162,10 @@
         </div>
         <!-- Footer Social Icons -->
         <div class="container">
-            <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
-            
-            <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
-            
+            <a href="https://www.facebook.com/LeykerPeru/">
+                <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+            </a>
+
         </div>
     </footer>
 
