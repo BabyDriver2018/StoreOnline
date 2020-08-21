@@ -17,7 +17,7 @@ class ClientController extends Controller
     public function index()
     {
         //
-        return view('client',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
+        return view('clientComponent.client',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
     }
 
     /**

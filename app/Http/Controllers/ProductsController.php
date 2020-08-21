@@ -30,20 +30,20 @@ class ProductsController extends Controller
     }
 
     public function store(Request $request){
-        
+
         return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
     public function delete($product_id){
-        
+
         //dd(Products::find($product_id));
         return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product_id)]);
     }
 
     //method for buy product
     public function showProd($productbuy_id){
-        
-        return view('buyclient',['product'=>Products::showprod($productbuy_id)]);
+
+        return view('clientComponent.client',['product'=>Products::showprod($productbuy_id)]);
 
     }
-    
+
 }
