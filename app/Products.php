@@ -21,8 +21,9 @@ class Products extends Model
         $allcategory = Category::all();
         return $allcategory->toarray();
     }
-    //Method for add products
+    //Method for add products of ProductsController
     public static function addProd($request){
+        
         $newProd = new Products();
         $newProd->name =$request->input('name');
         $newProd->description =$request->input('description');
@@ -51,13 +52,14 @@ class Products extends Model
     }
 
     //Method for delete product
-    public static function deleteProd($product_id){
-        Products::destroy($product_id);
+    public static function deleteProd($idproddelete){
+        
+        Products::destroy($idproddelete);
         return 'El Productos se Elimino con Exito!';
     }
     //Method for see producto test buy client
     public static function showprod($productbuy_id){
-        $product=Products::find($productbuy_id);
+        $product=Products::findOrFail($productbuy_id);
         
         return $product->toarray();
     }

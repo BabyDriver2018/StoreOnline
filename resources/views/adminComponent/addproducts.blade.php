@@ -83,7 +83,7 @@
                             <span class="section-heading-upper">Agregar Producto</span>
                         </h2>
                         <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                            <form action="../products/addProd" method="post" class="form-horizontal"
+                            <form action="{{ action('ProductsController@store') }}" method="post" class="form-horizontal"
                                 enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}

@@ -24,9 +24,9 @@ class AddProductsController extends Controller
         return view('adminComponent.addproducts',["category" => Category::index()]);
     }
 
-    public function store(Request $request){
+    // public function store(Request $request){
         
-        return view ('adminComponent.products',['allprod'=> Products::addProd($request)]);
-    }
+    //     return view ('adminComponent.products',['allprod'=> Products::addProd($request)]);
+    // }
     
 }

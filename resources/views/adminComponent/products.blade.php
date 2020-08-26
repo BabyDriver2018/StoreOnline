@@ -18,70 +18,67 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
     {{-- Fuente de Font Awesome --}}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link type="text/css" href="{{ asset('css/business-casual.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-                    href="{{ url('/home') }}">LYKER</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
-                                de
-                                Ventas</a>
-                        </li>
-                        <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
-                                Productos</a>
-                        </li>
-                        <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">
-                            {{ __('Cerrar Sesión') }}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                href="{{ url('/home') }}">LYKER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
+                            <span class="sr-only">(current)</span>
                         </a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
+                            de
+                            Ventas</a>
+                    </li>
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
+                            Productos</a>
+                    </li>
+                    <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                        {{ __('Cerrar Sesión') }}
+                    </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </ul>
-                </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </ul>
             </div>
-        </nav>
-        @if (!empty($allprod)){
-            @foreach ($allprod as $allproduc)
-                <section class="page-section">
-                    <div class="container">
-                        <div class="product-item">
-                            <div class="product-item-title d-flex">
-                                <div class="bg-faded p-5 d-flex ml-auto rounded">
-                                    <h2 class="section-heading mb-0">
+        </div>
+    </nav>
+    @if (!empty($allprod)){
+        @foreach ($allprod as $allproduc)
+            <section class="page-section">
+                <div class="container">
+                    <div class="product-item">
+                        <div class="product-item-title d-flex">
+                            <div class="bg-faded p-5 d-flex ml-auto rounded">
+                                <h2 class="section-heading mb-0">
 
-                                        <span class="section-heading-upper"><?= $allproduc['name'] ?>
-                                  {{-- Link para eliminar un producto --}}
-                                  <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" name="delete" method='get' type="button" class="btn btn-danger" ><i class="fa fa-trash"></i> Eliminar</button>
-                                  {{-- Link para editar producto --}}
-                                  <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/edit'" name="delete" method='get' type="button" class="btn btn-edit" ><i class="fas fa-edit"></i> Editar</button>
+                                    <span class="section-heading-upper"><?= $allproduc['name'] ?>
                                 </span>
                                   <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory'] - 1]['name'] ?> 
                                 </span>
@@ -89,6 +86,24 @@
                                 </span>
                                 <span class="section-heading-lower">Stock: <?= $allproduc['stock'] ?>
                                 </span>
+                                {{-- Link para eliminar un producto --}}
+                                <form id="delete-form" method="POST" action="{{ route('products.destroy', $idproddelete-> <?= $allproduc['id']?>) }}">
+                                  {{ csrf_field() }}
+                                  {{ method_field('DELETE') }}
+                              
+                                  <div class="form-group">
+                                    <input type="submit" class="btn btn-danger" value="Eliminar">
+                                  </div>
+                                </form>
+                                {{-- Link para editar producto --}}
+                                <form id="edit-form" method="POST" action="{{ route('products.update', $idprodupdate-> <?= $allproduc['id']?>) }}">
+                                  {{ csrf_field() }}
+                                  {{ method_field('DELETE') }}
+                              
+                                  <div class="form-group">
+                                    <input type="submit" class="btn btn-primary" value="Editar">
+                                  </div>
+                                </form>
                               </h2>
                             </div>
                             

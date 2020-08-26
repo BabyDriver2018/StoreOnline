@@ -18,37 +18,45 @@ class ProductsController extends Controller
     {
         $this->middleware('auth');
     }
-    public function products()
+    public function index()
     {
         //
         return view('adminComponent.products',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
     }
-    public function addproducts()
-    {
-        //RETORNAMOS A LA VISTA ADDPRODUCTS
-        return view('adminComponent.addproducts',["category" => Category::index()]);
-    }
-
+    
+    //of addproducts 
     public function store(Request $request){
-        
         return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
-    public function delete($product_id){
-        
-        //dd(Products::find($product_id));
-        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product_id)]);
-    }
-    public function edit($product_id){
-        
-        //dd(Products::find($product_id));
-        return view ('prodEditComponent.edit',[ 'prodEdit'=>Products::editProd($product_id)]);
+
+    public function show(Products $products)
+    {
+        //
     }
 
-    //method for buy product
+    
+    public function update(Request $request, Products $products)
+    {
+        //
+    }
+
+    public function destroy($idproddelete)
+    {
+        //
+        
+        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($idproddelete)]);
+    }
+
+    //method for buy product use a client
     public function showProd($productbuy_id){
         
         return view('clientComponent.buyclient',['product'=>Products::showprod($productbuy_id)]);
 
     }
-    
+    //for use all categori
+    public function addproducts()
+    {
+        //RETORNAMOS A LA VISTA ADDPRODUCTS
+        return view('adminComponent.addproducts',["category" => Category::index()]);
+    }
 }
