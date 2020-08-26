@@ -68,54 +68,7 @@
                 </div>
             </div>
         </nav>
-        @if (!empty($allprod)){
-            @foreach ($allprod as $allproduc)
-                <section class="page-section">
-                    <div class="container">
-                        <div class="product-item">
-                            <div class="product-item-title d-flex">
-                                <div class="bg-faded p-5 d-flex ml-auto rounded">
-                                    <h2 class="section-heading mb-0">
-
-                                        <span class="section-heading-upper"><?= $allproduc['name'] ?>
-                                  {{-- Link para eliminar un producto --}}
-                                  <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" name="delete" method='get' type="button" class="btn btn-danger" ><i class="fa fa-trash"></i> Eliminar</button>
-                                  {{-- Link para editar producto --}}
-                                  <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/edit'" name="delete" method='get' type="button" class="btn btn-edit" ><i class="fas fa-edit"></i> Editar</button>
-                                </span>
-                                  <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory'] - 1]['name'] ?> 
-                                </span>
-                                <span class="section-heading-lower">Precio: S/<?= $allproduc['price'] ?>
-                                </span>
-                                <span class="section-heading-lower">Stock: <?= $allproduc['stock'] ?>
-                                </span>
-                              </h2>
-                            </div>
-                            
-                          </div>
-                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="480" height="300"/>
-                          <div class="product-item-description d-flex mr-auto">
-                            <div class="bg-faded p-5 rounded">
-                              <h2 class="section-heading mb-4">
-                                <span class="section-heading-lower">Descripción</span>
-                              </h2>
-                                <p class="mb-0"><?= $allproduc['description'] ?></p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-</section>
-@endforeach
-}
-@else{
-  <h1 class="text-center navbar-nav mx-auto " >
-    
-    No hay productos
-  </h1>
-
-}
-@endif
-
+        
 <footer class="footer text-faded text-center py-5">
   <div class="container">
     <p class="m-0 small">Copyright &copy; Your Website 2020</p>

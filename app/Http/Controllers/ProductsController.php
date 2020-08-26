@@ -38,6 +38,11 @@ class ProductsController extends Controller
         //dd(Products::find($product_id));
         return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product_id)]);
     }
+    public function edit($product_id){
+        
+        //dd(Products::find($product_id));
+        return view ('prodEditComponent.edit',[ 'prodEdit'=>Products::editProd($product_id)]);
+    }
 
     //method for buy product
     public function showProd($productbuy_id){

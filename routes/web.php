@@ -28,7 +28,7 @@ Route::get('/products/add', 'ProductsController@addproducts');
 //rute for add productos
 Route::post('/products/addProd','ProductsController@store');
 Route::get('/products/{product_id}/delete','ProductsController@delete');
-
+Route::get('/products/{product_id}/edit','ProductsController@edit');
 // add teste buy 
 
 Route::get('/client','ClientController@index');

@@ -50,13 +50,21 @@ class Products extends Model
         return $filename;
     }
 
+    //Method for delete product
     public static function deleteProd($product_id){
         Products::destroy($product_id);
         return 'El Productos se Elimino con Exito!';
     }
+    //Method for see producto test buy client
     public static function showprod($productbuy_id){
         $product=Products::find($productbuy_id);
         
         return $product->toarray();
+    }
+
+    //Method for edit product
+    public static function editProd($product_id){
+        //search product by id
+
     }
 }
