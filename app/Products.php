@@ -64,10 +64,4 @@ class Products extends Model
         
         return $product->toarray();
     }
-
-    //Method for edit product
-    public static function editProd($product_id){
-        //search product by id
-
-    }
 }

@@ -69,38 +69,69 @@
             </div>
         </div>
     </nav>
-    
-            <section class="page-section">
-                <div class="container">
-                    <div class="product-item">
-                        <div class="product-item-title d-flex">
-                            <div class="bg-faded p-5 d-flex ml-auto rounded">
-                                <h2 class="section-heading mb-0">
-                                    <span class="section-heading-upper"><?= $oneprod['name'] ?>
-                                </span>
-                                  <span class="section-heading-lower"><?= $oneprod['idcategory'] ?> 
-                                </span>
-                                <span class="section-heading-lower">Precio: S/<?= $oneprod['price'] ?>
-                                </span>
-                                <span class="section-heading-lower">Stock: <?= $oneprod['stock'] ?>
-                                </span>
+
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner text-center rounded">
+                        <h2 class="section-heading mb-7">
+                            <span class="section-heading-upper">Editar Producto</span>
+                        </h2>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                            <form href="" method="post"
+                                class="form-horizontal" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                {{ method_field('PATCH') }}
+                                {{ method_field('POST') }}
                                 
-                              </h2>
-                            </div>
-                            
-                          </div>
-                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $oneprod['image'] ?>" alt="" width="480" height="300"/>
-                          <div class="product-item-description d-flex mr-auto">
-                            <div class="bg-faded p-5 rounded">
-                              <h2 class="section-heading mb-4">
-                                <span class="section-heading-lower">Descripción</span>
-                              </h2>
-                                <p class="mb-0"><?= $oneprod['description'] ?></p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-            </section>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Nombre:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="name"
+                                            placeholder="Nombre del Producto" required minlength="3" value="<?=$oneprod['name']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Descripcion:</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" name="description" rows="3" required
+                                            minlength="10" placeholder="Descripcion del Producto" ><?=$oneprod['description']?></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Price:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" min="1" class="form-control" name="price"
+                                            placeholder="Ingrese su precio" pattern="[0-9]{1,2}" value="<?=$oneprod['price']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Stock:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" min="1" class="form-control" name="stock"
+                                            placeholder="Ingrese su stock" pattern="[0-9]{1,2}" value="<?=$oneprod['stock']?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Elegir una imagen</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" value="<?=$oneprod['stock']?>">
+                                  </div>
+
+                                <div class="form-group mt-3">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Agregar Cambios</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 <footer class="footer text-faded text-center py-5">
   <div class="container">
