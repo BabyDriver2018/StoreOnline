@@ -49,9 +49,9 @@ class Products extends Model
     }
 
     //Method for delete product
-    public static function deleteProd($product){
+    public static function deleteProd($id){
         
-        Products::destroy($product);
+        Products::destroy($id);
         return 'El Productos se Elimino con Exito!';
     }
     //Method for see producto test buy client

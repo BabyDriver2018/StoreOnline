@@ -80,13 +80,13 @@
                             Ventas</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
+                        <a class="nav-link text-uppercase text-expanded" href="{{ route('products.index') }}">Productos</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/addproducts') }}">Agregar
                             Productos</a>
                     </li>
 

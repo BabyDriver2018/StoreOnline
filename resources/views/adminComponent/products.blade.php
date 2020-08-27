@@ -54,7 +54,7 @@
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/addproducts') }}">Agregar
                             Productos</a>
                     </li>
                     <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -80,7 +80,8 @@
 
                                     <span class="section-heading-upper"><?= $allproduc['name'] ?>
                                       {{-- Link para eliminar un producto --}}
-                                      
+                                    <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
+                                    {{-- <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button> --}}
                                 </span>
                                   <span class="section-heading-lower"><?= $category[$allproduc['idcategory'] - 1]['name'] ?> 
                                 </span>

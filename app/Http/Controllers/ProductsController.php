@@ -40,11 +40,11 @@ class ProductsController extends Controller
         dd("update");
     }
 
-    public function destroy($product)
+    public function delete($id)
     {
         //
-        
-        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product)]);
+        //dd($id);
+        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($id)]);
     }
 
     //method for buy product use a client
@@ -54,7 +54,7 @@ class ProductsController extends Controller
 
     }
     //for use all categori
-    public function addproducts()
+    public function addproductsindex()
     {
         //RETORNAMOS A LA VISTA ADDPRODUCTS
         return view('adminComponent.addproducts',["category" => Category::index()]);

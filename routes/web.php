@@ -21,13 +21,20 @@ Route::get('/', function () {
 Route::get('/index', 'InitController@index');
 Route::get('/registerVent', 'RegisterController@index');
 Route::get('/store', 'StoreController@store');
-Route::get('/products/add', 'ProductsController@addproducts');
+Route::get('/addproducts', 'ProductsController@addproductsindex');
 
-//tratar de usar 
+//use a resources
 Route::resource('/products','ProductsController');
 //tratar de usar 
 
-// add teste buy 
+///route for  delete product
+Route::get("/products/{id}/delete","ProductsController@delete");
+
+
+///route for  delete product
+Route::get("/products/{id}","ProductsController@delete");
+
+// add teste buy use a client
 Route::get('/client','ClientController@index');
 Route::get('/client/{productbuy_id}/buy','ProductsController@showProd');
 
