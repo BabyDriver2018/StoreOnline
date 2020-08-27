@@ -17,7 +17,11 @@ class Products extends Model
         //dd($allProd);
         return $allprod->toarray();
     }
-    
+    public static function show($id){
+        $oneprod = Products::findOrFail($id);
+        //dd($oneprod->toarray());
+        return $oneprod->toarray();
+    }
     //Method for add products of ProductsController
     public static function addProd($request){
         

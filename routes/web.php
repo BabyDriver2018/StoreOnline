@@ -28,11 +28,10 @@ Route::resource('/products','ProductsController');
 //tratar de usar 
 
 ///route for  delete product
-Route::get("/products/{id}/delete","ProductsController@delete");
+Route::get("/{id}/delete","ProductsController@delete");
 
-
-///route for  delete product
-Route::get("/products/{id}","ProductsController@delete");
+//route for edit prod
+Route::get("/{id}/edit","ProductsController@show");
 
 // add teste buy use a client
 Route::get('/client','ClientController@index');

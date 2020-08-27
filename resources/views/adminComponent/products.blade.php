@@ -80,8 +80,8 @@
 
                                     <span class="section-heading-upper"><?= $allproduc['name'] ?>
                                       {{-- Link para eliminar un producto --}}
-                                    <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
-                                    {{-- <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button> --}}
+                                    <button onclick="window.location='../public/<?= $allproduc['id'] ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
+                                    <button onclick="window.location='../public/<?= $allproduc['id'] ?>/edit'" method="get" name="edit" type="button" class="btn btn-primary">editar</button>
                                 </span>
                                   <span class="section-heading-lower"><?= $category[$allproduc['idcategory'] - 1]['name'] ?> 
                                 </span>

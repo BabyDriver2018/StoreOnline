@@ -18,57 +18,90 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
     {{-- Fuente de Font Awesome --}}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link type="text/css" href="{{ asset('css/business-casual.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-                    href="{{ url('/home') }}">LYKER</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
-                                de
-                                Ventas</a>
-                        </li>
-                        <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
-                                Productos</a>
-                        </li>
-                        <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">
-                            {{ __('Cerrar Sesión') }}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                href="{{ url('/home') }}">LYKER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
+                            <span class="sr-only">(current)</span>
                         </a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
+                            de
+                            Ventas</a>
+                    </li>
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/addproducts') }}">Agregar
+                            Productos</a>
+                    </li>
+                    <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                        {{ __('Cerrar Sesión') }}
+                    </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </ul>
-                </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </ul>
             </div>
-        </nav>
-        
+        </div>
+    </nav>
+    
+            <section class="page-section">
+                <div class="container">
+                    <div class="product-item">
+                        <div class="product-item-title d-flex">
+                            <div class="bg-faded p-5 d-flex ml-auto rounded">
+                                <h2 class="section-heading mb-0">
+                                    <span class="section-heading-upper"><?= $oneprod['name'] ?>
+                                </span>
+                                  <span class="section-heading-lower"><?= $oneprod['idcategory'] ?> 
+                                </span>
+                                <span class="section-heading-lower">Precio: S/<?= $oneprod['price'] ?>
+                                </span>
+                                <span class="section-heading-lower">Stock: <?= $oneprod['stock'] ?>
+                                </span>
+                                
+                              </h2>
+                            </div>
+                            
+                          </div>
+                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $oneprod['image'] ?>" alt="" width="480" height="300"/>
+                          <div class="product-item-description d-flex mr-auto">
+                            <div class="bg-faded p-5 rounded">
+                              <h2 class="section-heading mb-4">
+                                <span class="section-heading-lower">Descripción</span>
+                              </h2>
+                                <p class="mb-0"><?= $oneprod['description'] ?></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            </section>
+
 <footer class="footer text-faded text-center py-5">
   <div class="container">
     <p class="m-0 small">Copyright &copy; Your Website 2020</p>

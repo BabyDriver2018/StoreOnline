@@ -28,11 +28,6 @@ class ProductsController extends Controller
         return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     
     public function update(Request $request, $id)
     {
@@ -46,6 +41,13 @@ class ProductsController extends Controller
         //dd($id);
         return view ('adminComponent.index',[ 'message'=>Products::deleteProd($id)]);
     }
+
+    
+    public function show($id){
+        //dd($id);
+        return view('prodEditComponent.edit',['oneprod'=>Products::show($id)]);
+    }
+
 
     //method for buy product use a client
     public function showProd($productbuy_id){
