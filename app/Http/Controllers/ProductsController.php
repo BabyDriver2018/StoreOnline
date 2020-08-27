@@ -21,7 +21,8 @@ class ProductsController extends Controller
     public function index()
     {
         //
-        return view('adminComponent.products',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
+        
+        return view('adminComponent.products',['allprod'=>Products::index()],['category'=>Category::index()]);
     }
     
     //of addproducts 
@@ -29,22 +30,23 @@ class ProductsController extends Controller
         return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
 
-    public function show(Products $products)
+    public function show($id)
     {
         //
     }
 
     
-    public function update(Request $request, Products $products)
+    public function update(Request $request, $id)
     {
         //
+        dd("update");
     }
 
-    public function destroy($idproddelete)
+    public function destroy($product)
     {
         //
         
-        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($idproddelete)]);
+        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product)]);
     }
 
     //method for buy product use a client

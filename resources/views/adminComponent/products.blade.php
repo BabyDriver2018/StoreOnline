@@ -70,7 +70,7 @@
         </div>
     </nav>
     @if (!empty($allprod)){
-        @foreach ($allprod as $allproduc)
+        @foreach ($allprod as $allproduc){
             <section class="page-section">
                 <div class="container">
                     <div class="product-item">
@@ -79,31 +79,16 @@
                                 <h2 class="section-heading mb-0">
 
                                     <span class="section-heading-upper"><?= $allproduc['name'] ?>
+                                      {{-- Link para eliminar un producto --}}
+                                      
                                 </span>
-                                  <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory'] - 1]['name'] ?> 
+                                  <span class="section-heading-lower"><?= $category[$allproduc['idcategory'] - 1]['name'] ?> 
                                 </span>
                                 <span class="section-heading-lower">Precio: S/<?= $allproduc['price'] ?>
                                 </span>
                                 <span class="section-heading-lower">Stock: <?= $allproduc['stock'] ?>
                                 </span>
-                                {{-- Link para eliminar un producto --}}
-                                <form id="delete-form" method="POST" action="{{ route('products.destroy', $idproddelete-> <?= $allproduc['id']?>) }}">
-                                  {{ csrf_field() }}
-                                  {{ method_field('DELETE') }}
-                              
-                                  <div class="form-group">
-                                    <input type="submit" class="btn btn-danger" value="Eliminar">
-                                  </div>
-                                </form>
-                                {{-- Link para editar producto --}}
-                                <form id="edit-form" method="POST" action="{{ route('products.update', $idprodupdate-> <?= $allproduc['id']?>) }}">
-                                  {{ csrf_field() }}
-                                  {{ method_field('DELETE') }}
-                              
-                                  <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" value="Editar">
-                                  </div>
-                                </form>
+                                
                               </h2>
                             </div>
                             

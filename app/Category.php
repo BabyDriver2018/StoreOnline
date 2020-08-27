@@ -17,7 +17,6 @@ class Category extends Model
         //dd($category); comprobamos 
         return $category->toarray();
     }
-
     
     public function products()
     {
