@@ -20,12 +20,10 @@ class ProductsController extends Controller
     }
     public function index()
     {
-        //
-        
         return view('adminComponent.products',['allprod'=>Products::index()],['category'=>Category::index()]);
     }
     
-    //of addproducts 
+    //comming of views addproducts 
     public function store(Request $request){
         return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
