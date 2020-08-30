@@ -46,6 +46,6 @@ class ProductsController extends Controller
         return view('clientComponent.client',['product'=>Products::showprod($productbuy_id)]);
 
     }
-    //probando 
+    //probando sss
 
 }
