@@ -20,21 +20,25 @@ Route::get('/', function () {
 //Routes views
 Route::get('/index', 'InitController@index');
 Route::get('/registerVent', 'RegisterController@index');
-Route::get('/products', 'ProductsController@products');
 Route::get('/store', 'StoreController@store');
-Route::get('/products/add', 'ProductsController@addproducts');
+Route::get('/addproducts', 'ProductsController@addproductsindex');
 
+//use a resources
+Route::resource('/products','ProductsController');
+//tratar de usar 
 
-//rute for add productos
-Route::post('/products/addProd','ProductsController@store');
-Route::get('/products/{product_id}/delete','ProductsController@delete');
+///route for  delete product
+Route::get("/{id}/delete","ProductsController@delete");
 
-// add teste buy 
+//route for edit prod
+Route::get("/{id}/edit","ProductsController@show");
+Route::post("products/edit");
 
+// add teste buy use a client
 Route::get('/client','ClientController@index');
 Route::get('/client/{productbuy_id}/buy','ProductsController@showProd');
 
-//route search registros
+//route search registros use a client
 Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');
 Route::post('/register/month','RegisterController@indexSelect');
 

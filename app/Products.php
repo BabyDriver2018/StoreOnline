@@ -13,16 +13,18 @@ class Products extends Model
     protected $fillable = ['id', 'name', 'description','price', 'stock','image','idcategory'];
 
     public static function index(){
-        $allProd = Products::all();
+        $allprod = Products::all();
         //dd($allProd);
-        return $allProd->toarray();
+        return $allprod->toarray();
     }
-    public static function indexcategory(){
-        $allcategory = Category::all();
-        return $allcategory->toarray();
+    public static function show($id){
+        $oneprod = Products::findOrFail($id);
+        //dd($oneprod->toarray());
+        return $oneprod->toarray();
     }
-    //Method for add products
+    //Method for add products of ProductsController
     public static function addProd($request){
+        
         $newProd = new Products();
         $newProd->name =$request->input('name');
         $newProd->description =$request->input('description');
@@ -50,12 +52,15 @@ class Products extends Model
         return $filename;
     }
 
-    public static function deleteProd($product_id){
-        Products::destroy($product_id);
+    //Method for delete product
+    public static function deleteProd($id){
+        
+        Products::destroy($id);
         return 'El Productos se Elimino con Exito!';
     }
+    //Method for see producto test buy client
     public static function showprod($productbuy_id){
-        $product=Products::find($productbuy_id);
+        $product=Products::findOrFail($productbuy_id);
         
         return $product->toarray();
     }

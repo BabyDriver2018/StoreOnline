@@ -55,7 +55,7 @@
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/addproducts') }}">Agregar
                             Productos</a>
                     </li>
                     <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -159,10 +159,10 @@
         </div>
         <!-- Footer Social Icons -->
         <div class="container">
-            <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
-            
-            <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
-            
+            <a href="https://www.facebook.com/LeykerPeru/">
+                <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+            </a>
+
         </div>
     </footer>
 

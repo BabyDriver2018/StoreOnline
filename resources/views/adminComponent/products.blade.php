@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,86 +17,84 @@
         href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{-- Fuente de Font Awesome --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link type="text/css" href="{{ asset('css/business-casual.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
-    <div class="card-body">
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-                    href="{{ url('/home') }}">LYKER</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
-                                de
-                                Ventas</a>
-                        </li>
-                        <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
-                        </li>
-                        <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="{{ url('/products/add') }}">Agregar
-                                Productos</a>
-                        </li>
-                        <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">
-                            {{ __('Cerrar Sesión') }}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                href="{{ url('/home') }}">LYKER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Inicio
+                            <span class="sr-only">(current)</span>
                         </a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
+                            de
+                            Ventas</a>
+                    </li>
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/addproducts') }}">Agregar
+                            Productos</a>
+                    </li>
+                    <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                        {{ __('Cerrar Sesión') }}
+                    </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </ul>
-                </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </ul>
             </div>
-        </nav>
-        @if (!empty($allprod)){
-            @foreach ($allprod as $allproduc)
-                <section class="page-section">
-                    <div class="container">
-                        <div class="product-item">
-                            <div class="product-item-title d-flex">
-                                <div class="bg-faded p-5 d-flex ml-auto rounded">
-                                    <h2 class="section-heading mb-0">
+        </div>
+    </nav>
+    @if (!empty($allprod)){
+        @foreach ($allprod as $allproduc){
+            <section class="page-section">
+                <div class="container">
+                    <div class="product-item">
+                        <div class="product-item-title d-flex">
+                            <div class="bg-faded p-5 d-flex ml-auto rounded">
+                                <h2 class="section-heading mb-0">
 
-                                        <span class="section-heading-upper"><?= $allproduc['name'] ?>
-                                  <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>/delete'" name="delete" method='get' type="button" class="btn btn-danger"  ><i class="fa fa-trash"></i> Eliminar</button>
+                                    <span class="section-heading-upper"><?= $allproduc['name'] ?>
+                                      {{-- Link para eliminar un producto --}}
+                                    <button onclick="window.location='../public/<?= $allproduc['id'] ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
+                                    <button onclick="window.location='../public/<?= $allproduc['id'] ?>/edit'" method="get" name="edit" type="button" class="btn btn-primary">editar</button>
                                 </span>
-                                  <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory'] - 1]['name'] ?> 
+                                  <span class="section-heading-lower"><?= $category[$allproduc['idcategory'] - 1]['name'] ?> 
                                 </span>
                                 <span class="section-heading-lower">Precio: S/<?= $allproduc['price'] ?>
                                 </span>
                                 <span class="section-heading-lower">Stock: <?= $allproduc['stock'] ?>
                                 </span>
+                                
                               </h2>
                             </div>
                             
                           </div>
-                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="596" height="460"/>
+                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="480" height="300"/>
                           <div class="product-item-description d-flex mr-auto">
                             <div class="bg-faded p-5 rounded">
                               <h2 class="section-heading mb-4">
@@ -127,17 +123,16 @@
   </div>
   <!-- Footer Social Icons -->
   <div class="container">
-    <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
-    
-    <a href="https://www.facebook.com/LeykerPeru/" class="fa fa-facebook"></a>
-    
+    <a href="https://www.facebook.com/LeykerPeru/">
+        <h4 class="text-uppercase mb-4">Cuenta Oficial de Facebook</h4>
+    </a>
+
 </div>
 </footer>
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{ asset('jquery/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
-</div>
 </body>
 
 </html>
