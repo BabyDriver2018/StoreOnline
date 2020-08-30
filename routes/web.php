@@ -32,7 +32,7 @@ Route::get("/{id}/delete","ProductsController@delete");
 
 //route for edit prod
 Route::get("/{id}/edit","ProductsController@show");
-Route::post("products/");
+Route::post("products/edit");
 
 // add teste buy use a client
 Route::get('/client','ClientController@index');

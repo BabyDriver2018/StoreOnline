@@ -79,12 +79,26 @@
                             <span class="section-heading-upper">Editar Producto</span>
                         </h2>
                         <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                            <form href="" method="post"
+                            <form href="/products/edit" method="post"
                                 class="form-horizontal" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 {{ method_field('POST') }}
-                                
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Categoria:</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-check-input" type="radio" name="category" id="exampleRadios1" value="1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Hombre
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input class="form-check-input" type="radio" name="category" id="exampleRadios1" value="2" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Mujer
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Nombre:</label>
                                     <div class="col-sm-10">
@@ -116,12 +130,12 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Elegir una imagen</label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" value="<?=$oneprod['stock']?>">
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" value="<?=$oneprod['image']?>">
                                   </div>
 
                                 <div class="form-group mt-3">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Agregar Cambios</button>
+                                        <button type="submit" class="btn btn-primary">Agregar Cambios del producto</button>
                                     </div>
                                 </div>
                             </form>
