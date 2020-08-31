@@ -33,12 +33,8 @@ class Products extends Model
         return $oneprod->toarray();
     }
 
-    
-
-
     //Method for add products of ProductsController
     public static function addProd($request){
-        
         $newProd = new Products();
         $newProd->name =$request->input('name');
         $newProd->description =$request->input('description');
