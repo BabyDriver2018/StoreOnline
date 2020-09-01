@@ -33,6 +33,7 @@ class ProductsController extends Controller
     public function updateProd(Request $request)
     {
         //dd($request);
+        //Agregando Camabios xdddddddddd
         return view ('adminComponent.index',[ 'message'=>Products::updateProd($request)]);
     }
 
