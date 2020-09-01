@@ -48,10 +48,16 @@ class ProductsController extends Controller
         return view('prodEditComponent.edit',['oneprod'=>Products::show($id)]);
     }
 
+    public function showProd($productbuy_id){
+        
+        return view('clientComponent.buyclient',['product'=>Products::showprod($productbuy_id)]);
+
+    }
     //for use all categori
     public function addproductsindex()
     {
         //RETORNAMOS A LA VISTA ADDPRODUCTS
         return view('adminComponent.addproducts',["category" => Category::index()]);
     }
+
 }
