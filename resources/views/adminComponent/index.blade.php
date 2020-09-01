@@ -119,7 +119,7 @@
                 <div class="col-xl-9 mx-auto">
                     <div class="cta-inner text-center rounded">
                         <h2 class="section-heading mb-4">
-                            <span class="section-heading-lower">LYKER</span>
+                            <span class="section-heading-lower">LEYKER</span>
                         </h2>
                         <p class="mb-0">Todas nuestras pulseras hechas
                             a medida están hechas a mano en nuestro estudio
