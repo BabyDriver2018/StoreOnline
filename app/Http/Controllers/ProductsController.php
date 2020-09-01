@@ -29,23 +29,27 @@ class ProductsController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    
+    public function updateProd(Request $request)
+    {
+        //dd($request);
+        return view ('adminComponent.index',[ 'message'=>Products::updateProd($request)]);
+    }
+
+    public function delete($id)
     {
         //
-        dd("update");
+        //dd($id);
+        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($id)]);
     }
 
-    public function store(Request $request){
+    
+    public function show($id){
+        //dd($id);
+        return view('prodEditComponent.edit',['oneprod'=>Products::show($id)]);
 
-        return view ('adminComponent.index',['message'=> Products::addProd($request)]);    }
-    public function delete($product_id){
-
-        //dd(Products::find($product_id));
-        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($product_id)]);
     }
 
-
-    //method for buy product use a client
     public function showProd($productbuy_id){
 
         return view('clientComponent.buyclient',['product'=>Products::showprod($productbuy_id)]);
@@ -57,4 +61,6 @@ class ProductsController extends Controller
         //RETORNAMOS A LA VISTA ADDPRODUCTS
         return view('adminComponent.addproducts',["category" => Category::index()]);
     }
+
+
 }

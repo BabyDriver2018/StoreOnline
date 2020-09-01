@@ -130,11 +130,11 @@
 
                                 <div class="col">
                                     <div class="col input-group">
-                                        <div>
-                                            <input type="file" class="custom-file-input" name="image" lang="es"
-                                                required>
-                                            <label class="custom-file-label" for="customFileLang">Seleccionar
-                                                imagen</label>
+                                        <div class="form-group">
+                                            <label for="image">Elegir una imagen</label>
+                                            
+        
+                                            <input type="file" class="form-control-file" name="image" id="image" accept="image/*" required>
                                         </div>
 
                                     </div>

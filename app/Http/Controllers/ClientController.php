@@ -17,11 +17,7 @@ class ClientController extends Controller
     public function index()
     {
         //
-<<<<<<< HEAD
-        return view('clientComponent.client',['allprod'=>Products::index()],['allcategory'=>Products::indexcategory()]);
-=======
         return view('clientComponent.client',['allprod'=>Products::index()],['allcategory'=>Category::index()]);
->>>>>>> 46f149ff41df5a60216f93aa27797b0f1b99b70b
     }
 
     /**
@@ -74,6 +70,12 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
+    //method for buy product use a client
+    public function showProd($productbuy_id){
+        //dd($productbuy_id);
+        return view('clientComponent.buyclient',['product'=>Products::showprod($productbuy_id)]);
+
+    }
     public function update(Request $request, Client $client)
     {
         //
