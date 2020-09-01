@@ -29,12 +29,13 @@ class ProductsController extends Controller
     }
 
 
-    
+
     public function updateProd(Request $request)
     {
         //dd($request);
         //Agregando Camabios xdddddddddd
         //agregado una nueva linea
+        //prueba
         return view ('adminComponent.index',[ 'message'=>Products::updateProd($request)]);
     }
 
@@ -45,7 +46,7 @@ class ProductsController extends Controller
         return view ('adminComponent.index',[ 'message'=>Products::deleteProd($id)]);
     }
 
-    
+
     public function show($id){
         //dd($id);
         return view('prodEditComponent.edit',['oneprod'=>Products::show($id)]);
