@@ -22,8 +22,27 @@ class Products extends Model
 
     //method for update prod
     public static function updateProd($request){
-        dd($request);
-        return $oneprod->toarray();
+        //dd($request->product);
+        //find product id
+        $editprod=Products::findOrFail($request->product);
+        $editprod->name=$request->input('name');
+        $editprod->description=$request->input('description');
+        $editprod->price=$request->input('price');
+        $editprod->stock=$request->input('stock');
+
+        if($request->hasfile('image')){
+            //dd($request);
+            $editprod->image = self::verifImage($request);
+            //dd($editprod->image);
+
+        }
+        else{
+            $editprod->image=$editprod->image;
+            //dd($editprod->image);
+        }
+        $editprod->idcategory=$request->input('category');
+        $editprod->save();
+        return "El producto se edito con exito!";
     }
 
     //show one prod
@@ -56,7 +75,9 @@ class Products extends Model
     //Method for validate iamge
     public static function verifImage($request){
         $file=$request->file('image');
+        //dd($file);
         $extension = $file->getClientOriginalExtension();
+        
         $filename = time() . '.'.$extension;
         $file->move('uploads/products/img',$filename);
         return $filename;

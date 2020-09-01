@@ -28,14 +28,10 @@ class ProductsController extends Controller
         return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
 
-
-
+    //Methos for Update prod
     public function updateProd(Request $request)
     {
         //dd($request);
-        //Agregando Camabios xdddddddddd
-        //agregado una nueva linea
-        //prueba
         return view ('adminComponent.index',[ 'message'=>Products::updateProd($request)]);
     }
 

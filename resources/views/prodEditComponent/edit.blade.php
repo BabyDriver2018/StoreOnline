@@ -129,9 +129,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="image">Editar Imagen</label>
+                                    <label for="image">Imagen Actual</label>
                                     <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="../uploads/products/img/<?= $oneprod['image'] ?>" alt="" width="200" height="140"/>
-
+                                    <label for="image">Editar Imagen</label>
                                     <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
                                 </div>
 
