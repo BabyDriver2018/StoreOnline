@@ -34,6 +34,7 @@ class ProductsController extends Controller
     {
         //dd($request);
         //Agregando Camabios xdddddddddd
+        //agregado una nueva linea
         return view ('adminComponent.index',[ 'message'=>Products::updateProd($request)]);
     }
 
