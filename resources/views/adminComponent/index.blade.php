@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    
+
     <!-- Modal Message Init-->
     <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
         <div class="modal-dialog">
@@ -123,8 +123,8 @@
                         </h2>
                         <p class="mb-0">Todas nuestras pulseras hechas
                             a medida están hechas a mano en nuestro estudio
-                             "TINGO MARIA" a diario, por lo que no tendrá que 
-                             esperar mucho para recibir su pulsera personalizada Leyke'r.
+                             "TINGO MARIA" a diario, por lo que no tendrá que
+                             esperar mucho para recibir su pulsera personalizada LEYKER.
                             Hecho a mano por nosotros!!!</p>
                     </div>
                 </div>

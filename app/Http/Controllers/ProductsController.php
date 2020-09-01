@@ -22,11 +22,12 @@ class ProductsController extends Controller
     {
         return view('adminComponent.products',['allprod'=>Products::index()],['category'=>Category::index()]);
     }
-    
-    //comming of views addproducts 
+
+    //comming of views addproducts
     public function store(Request $request){
         return view ('adminComponent.index',['message'=> Products::addProd($request)]);
     }
+
 
     
     public function updateProd(Request $request)
@@ -46,10 +47,11 @@ class ProductsController extends Controller
     public function show($id){
         //dd($id);
         return view('prodEditComponent.edit',['oneprod'=>Products::show($id)]);
+
     }
 
     public function showProd($productbuy_id){
-        
+
         return view('clientComponent.buyclient',['product'=>Products::showprod($productbuy_id)]);
 
     }
@@ -59,5 +61,6 @@ class ProductsController extends Controller
         //RETORNAMOS A LA VISTA ADDPRODUCTS
         return view('adminComponent.addproducts',["category" => Category::index()]);
     }
+
 
 }
