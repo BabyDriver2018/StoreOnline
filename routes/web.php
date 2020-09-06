@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\User;
+use App\StoreOnlinePermission\Models\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 
 //Routes views
@@ -25,7 +27,7 @@ Route::get('/addproducts', 'ProductsController@addproductsindex');
 
 //use a resources
 Route::resource('products','ProductsController');
-//tratar de usar 
+//tratar de usar
 
 ///route for  delete product
 Route::get("/{id}/delete","ProductsController@delete");
@@ -45,3 +47,5 @@ Route::post('/register/month','RegisterController@indexSelect');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/user-role', 'UserRolesController@index');
