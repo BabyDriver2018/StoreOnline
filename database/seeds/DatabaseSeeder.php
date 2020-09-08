@@ -14,9 +14,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->truncateTables([
-            'category'
+            'category',
+            'roles'
         ]);   
         $this->call(CategorySeeder::class);
+        $this->call(RolesSeeder::class);
     }
 
     protected function truncateTables(array $tables){
