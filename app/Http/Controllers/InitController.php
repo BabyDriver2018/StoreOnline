@@ -19,7 +19,7 @@ class InitController extends Controller
     public function index()
     {
         //
-        return view(Init::index());
+        return view('adminComponent.index',['message'=>Init::index()]);
     }
 
     

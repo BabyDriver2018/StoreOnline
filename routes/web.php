@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 });
 
+//Route for login and register
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 //Routes views
 Route::get('/index', 'InitController@index');
 Route::get('/registerVent', 'RegisterController@index');
@@ -40,12 +44,10 @@ Route::post("/products/edit","ProductsController@updateProd");
 Route::get('/client','ClientController@index');
 Route::get('/client/{productbuy_id}/buy','ClientController@showProd');
 
+
+//Route use for assignt roles
+Route::get('/user-role', 'UserRolesController@index');
+
 //route search registros use a client
 Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');
 Route::post('/register/month','RegisterController@indexSelect');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/user-role', 'UserRolesController@index');
