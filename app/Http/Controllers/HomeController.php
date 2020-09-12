@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Init;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('adminComponent.index');
+
+        return view('adminComponent.index',['message'=>Init::index()]);
     }
     
 }
