@@ -25,8 +25,8 @@
 </head>
 
 <body>
-        <!-- Modal Message Init-->
-
+    <!-- Modal Message Init-->
+    @if (!empty($message_of_prod_stock))
         <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -34,34 +34,34 @@
                     <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
                         <h4 class="modal-title">NOVEDADES</h4>
                     </div>
-                    @if (!empty($message_of_prod_stock))
-                        <div class="modal-body">{{ $message_of_prod_stock }}
-                        </div>
-                    @else
-                        
-                        <div class="modal-body">No hay Novedades.
-                        </div>
-    
-                    @endif
+
+                    <div class="modal-body">{{ $message_of_prod_stock }}
+                    </div>
+
                     <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
                             type="button">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
+        </script>
         <script type="text/javascript">
             $(function() {
                 $("#myModal").modal();
             });
-    
+
         </script>
+    @endif
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
-            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{{ url('/home') }}">LYKER </a>
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                href="{{ url('/home') }}">LYKER </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -151,7 +151,7 @@
                                 <em>Llama en Cualquier momento</em>
                             </small>
                             <br>
-                            
+
                         </p>
                     </div>
                 </div>

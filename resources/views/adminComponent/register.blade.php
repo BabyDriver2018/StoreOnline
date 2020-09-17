@@ -22,49 +22,50 @@
     <!-- Custom styles for this template -->
     <link type="text/css" href="{{ asset('css/business-casual.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <!-- Modal Message Init-->
+    @if (!empty($message_of_prod_stock))
+        <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
+                        <h4 class="modal-title">NOVEDADES</h4>
+                    </div>
 
-    <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
-                    <h4 class="modal-title">NOVEDADES</h4>
-                </div>
-                @if (!empty($message_of_prod_stock))
                     <div class="modal-body">{{ $message_of_prod_stock }}
                     </div>
-                @else
-                    
-                    <div class="modal-body">No hay Novedades.
-                    </div>
 
-                @endif
-                <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
-                        type="button">Close</button>
+                    <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
+                            type="button">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function() {
-            $("#myModal").modal();
-        });
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $("#myModal").modal();
+            });
 
-    </script>
-    
+        </script>
+    @endif
+
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
-            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{{ url('/home') }}">Start Bootstrap</a>
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                href="{{ url('/home') }}">Start Bootstrap</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -117,12 +118,13 @@
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 {{ method_field('POST') }}
-                                
+
                                 <div class="form-group">
                                     <label class="control-label col-sm-20">Año:</label>
                                     <div class="col-sm-10">
-                                        <input type="number"value="2020" min="2020" max="2024" class="form-control" name="year"
-                                            placeholder="Ingrese el año que desea mostrar" pattern="[0-9]{4,4}">
+                                        <input type="number" value="2020" min="2020" max="2024" class="form-control"
+                                            name="year" placeholder="Ingrese el año que desea mostrar"
+                                            pattern="[0-9]{4,4}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -136,7 +138,7 @@
                                         <option value="05">MAYO</option>
                                         <option value="06">JUNIO</option>
                                         <option value="07">JULIO</option>
-                                        <option value="08" selected >AGOSTO</option>
+                                        <option value="08" selected>AGOSTO</option>
                                         <option value="09">SEPTIEMPRE</option>
                                         <option value="10">OCTUBRE</option>
                                         <option value="11">NOVIEMBRE</option>
@@ -170,10 +172,11 @@
                                                 <td>{{ $allregisters['price'] }}</td>
                                                 <td>{{ $allregisters['count'] }}</td>
                                                 <td>{{ $allregisters['total'] }}</td>
-                                                <td>{{ $allregisters['day'] }}-{{ $allregisters['month'] }}-{{ $allregisters['year'] }}</td>
+                                                <td>{{ $allregisters['day'] }}-{{ $allregisters['month'] }}-{{ $allregisters['year'] }}
+                                                </td>
                                             </tr>
                                         @endforeach
-                                        
+
                                     <tbody>
 
                                 </table>

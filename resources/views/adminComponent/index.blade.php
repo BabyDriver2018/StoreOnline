@@ -28,35 +28,36 @@
 <body>
 
     <!-- Modal Message Init-->
-    <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
-                    <h4 class="modal-title">NOVEDADES</h4>
-                </div>
-                @if (!empty($message))
-                    <div class="modal-body">{{ $message }}
-                    </div>
-                @else
-                    <div class="modal-body">No hay Novedades.
+    @if (!empty($message_of_prod_stock))
+        <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
+                        <h4 class="modal-title">NOVEDADES</h4>
                     </div>
 
-                @endif
-                <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
-                        type="button">Close</button>
+                    <div class="modal-body">{{ $message_of_prod_stock }}
+                    </div>
+
+                    <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
+                            type="button">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function() {
-            $("#myModal").modal();
-        });
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $("#myModal").modal();
+            });
 
-    </script>
+        </script>
+    @endif
+
 
 
     <!-- Navigation -->
@@ -80,7 +81,8 @@
                             Ventas</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ route('products.index') }}">Productos</a>
+                        <a class="nav-link text-uppercase text-expanded"
+                            href="{{ route('products.index') }}">Productos</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
@@ -123,8 +125,8 @@
                         </h2>
                         <p class="mb-0">Todas nuestras pulseras hechas
                             a medida están hechas a mano en nuestro estudio
-                             "TINGO MARIA" a diario, por lo que no tendrá que
-                             esperar mucho para recibir su pulsera personalizada LEYKER.
+                            "TINGO MARIA" a diario, por lo que no tendrá que
+                            esperar mucho para recibir su pulsera personalizada LEYKER.
                             Hecho a mano por nosotros!!!</p>
                     </div>
                 </div>

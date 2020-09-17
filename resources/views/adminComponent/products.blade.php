@@ -27,38 +27,35 @@
 
 <body>
     <!-- Modal Message Init-->
+    @if (!empty($message_of_prod_stock))
+        <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
+                        <h4 class="modal-title">NOVEDADES</h4>
+                    </div>
 
-    <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
-                    <h4 class="modal-title">NOVEDADES</h4>
-                </div>
-                @if (!empty($message_of_prod_stock))
                     <div class="modal-body">{{ $message_of_prod_stock }}
                     </div>
-                @else
-                    
-                    <div class="modal-body">No hay Novedades.
-                    </div>
 
-                @endif
-                <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
-                        type="button">Close</button>
+                    <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
+                            type="button">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function() {
-            $("#myModal").modal();
-        });
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $("#myModal").modal();
+            });
 
-    </script>
-
+        </script>
+    @endif
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
@@ -111,9 +108,10 @@
                             <div class="bg-faded p-5 d-flex ml-auto rounded">
                                 <h2 class="section-heading mb-0">
 
-                                <span class="section-heading-upper"><?= $allproduc->name ?>
-                                      {{-- Link para eliminar un producto --}}
-                                    <button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
+                                    <span class="section-heading-upper"><?= $allproduc->name ?>
+                                      {{-- Link para eliminar un producto
+                                        --}}
+                                        <button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
                                     <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
                                 </span>
 
@@ -123,7 +121,7 @@
                                 <span class="section-heading-lower">Precio: S/ <?= $allproduc->price ?>
                                 </span>
                                 
-                                <span class="section-heading-lower">Stock: <?= $allproduc->stock?>
+                                <span class="section-heading-lower">Stock: <?= $allproduc->stock ?>
                                 </span>
 
                                 </h2>
@@ -144,7 +142,7 @@
             </section>
         @endforeach
     }
-    @else{
+@else{
         <h1 class="text-center navbar-nav mx-auto " >
 
             No hay productos
