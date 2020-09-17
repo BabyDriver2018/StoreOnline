@@ -44,10 +44,25 @@ Route::post("/products/edit","ProductsController@updateProd");
 Route::get('/client','ClientController@index');
 Route::get('/client/{productbuy_id}/buy','ClientController@showProd');
 
-
-//Route use for assignt roles
-Route::get('/user-role', 'UserRolesController@index');
-
 //route search registros use a client
 Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');
 Route::post('/register/month','RegisterController@indexSelect');
+
+//test of roles
+Route::get('/test-roles', function () {
+/*
+return Role::create([
+    'name' => 'cliente',
+    'slug' => 'cliente',
+    'description' => 'Cliente del sistema',
+    'full-acces' => 'no',
+    ]);
+    */
+    //ASSING ROLE OF ADMIN TO USER
+    /*
+    $user = User::find(1);
+    $user->roles()->sync([3]);
+    return $user->roles;
+    */
+    
+});

@@ -21,7 +21,7 @@ class Category extends Model
     public function products()
     {
         //RELACION DE UNO A MUCHOS; UNA CATEGORIA TIENE MUCHOS PRODUCTOS
-        return $this->hasMany('App\Products', 'idcategory');
+        return $this->hasMany('App\Products');
     }
 
 }

@@ -2,7 +2,7 @@
 
 namespace App;
 use App\Category;
-use App\Products;
+use Hamcrest\Type\IsObject;
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
@@ -16,8 +16,10 @@ class Products extends Model
     //show all productos
     public static function index(){
         $allprod = Products::all();
-        //dd($allProd);
-        return $allprod->toarray();
+        //var_dump($allprod);exit();
+        //dd($allprod[0]->category);
+        
+        return $allprod;
     }
 
     //method for update prod
@@ -94,5 +96,11 @@ class Products extends Model
         $product=Products::findOrFail($productbuy_id);
         
         return $product->toarray();
+    }
+
+    public function category()
+    {
+        //RELACION DE UNO A MUCHOS; UNA CATEGORIA TIENE MUCHOS PRODUCTOS
+        return $this->belongsTo('App\Category','idcategory');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Init;
 use App\Category;
 use App\Products;
 
@@ -21,7 +22,7 @@ class AddProductsController extends Controller
     public function addproducts()
     {
         //RETORNAMOS A LA VISTA ADDPRODUCTS
-        return view('adminComponent.addproducts',["category" => Category::index()]);
+        return view('adminComponent.addproducts',["category" => Category::index()],['message_of_prod_stock'=>Init::index()]);
     }
 
     // public function store(Request $request){

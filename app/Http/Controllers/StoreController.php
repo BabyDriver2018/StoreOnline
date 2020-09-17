@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Init;
 use App\Store;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class StoreController extends Controller
     public function store()
     {
         //
-        return view(Store::index());
+        return view(Store::index(),['message_of_prod_stock'=>Init::index()]);
     }
 
     

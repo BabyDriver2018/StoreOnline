@@ -26,6 +26,39 @@
 </head>
 
 <body>
+    <!-- Modal Message Init-->
+
+    <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
+                    <h4 class="modal-title">NOVEDADES</h4>
+                </div>
+                @if (!empty($message_of_prod_stock))
+                    <div class="modal-body">{{ $message_of_prod_stock }}
+                    </div>
+                @else
+                    
+                    <div class="modal-body">No hay Novedades.
+                    </div>
+
+                @endif
+                <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
+                        type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#myModal").modal();
+        });
+
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
@@ -78,23 +111,26 @@
                             <div class="bg-faded p-5 d-flex ml-auto rounded">
                                 <h2 class="section-heading mb-0">
 
-                                    <span class="section-heading-upper"><?= $allproduc['name'] ?>
+                                <span class="section-heading-upper"><?= $allproduc->name ?>
                                       {{-- Link para eliminar un producto --}}
-                                    <button onclick="window.location='../public/<?= $allproduc['id'] ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
-                                    <button onclick="window.location='../public/products/<?= $allproduc['id'] ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
-                                </span>
-                                  <span class="section-heading-lower"><?= $category[$allproduc['idcategory'] - 1]['name'] ?>
-                                </span>
-                                <span class="section-heading-lower">Precio: S/<?= $allproduc['price'] ?>
-                                </span>
-                                <span class="section-heading-lower">Stock: <?= $allproduc['stock'] ?>
+                                    <button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
+                                    <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
                                 </span>
 
-                              </h2>
+                                <span class="section-heading-lower"><?= $allproduc->category->name ?>
+                                </span>
+
+                                <span class="section-heading-lower">Precio: S/ <?= $allproduc->price ?>
+                                </span>
+                                
+                                <span class="section-heading-lower">Stock: <?= $allproduc->stock?>
+                                </span>
+
+                                </h2>
                             </div>
 
                           </div>
-                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt="" width="480" height="300"/>
+                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="480" height="300"/>
                           <div class="product-item-description d-flex mr-auto">
                             <div class="bg-faded p-5 rounded">
                               <h2 class="section-heading mb-4">
@@ -102,20 +138,20 @@
                               </h2>
                                 <p class="mb-0"><?= $allproduc['description'] ?></p>
                             </div>
-                          </div>
                         </div>
-                      </div>
-</section>
-@endforeach
-}
-@else{
-  <h1 class="text-center navbar-nav mx-auto " >
+                    </div>
+                </div>
+            </section>
+        @endforeach
+    }
+    @else{
+        <h1 class="text-center navbar-nav mx-auto " >
 
-    No hay productos
-  </h1>
+            No hay productos
+        </h1>
 
-}
-@endif
+    }
+    @endif
 
 <footer class="footer text-faded text-center py-5">
   <div class="container">

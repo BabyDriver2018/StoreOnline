@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Products;
-use App\Category;
+use App\Init;
 use App\Register;
 use Illuminate\Http\Request;
 
@@ -20,8 +19,7 @@ class RegisterController extends Controller
     }
     public function index()
     {
-        //
-        return view('adminComponent.register',['allregister'=>Register::index()]);
+        return view('adminComponent.register',['allregister'=>Register::index()],['message_of_prod_stock'=>Init::index()]);
     }
 
     /**

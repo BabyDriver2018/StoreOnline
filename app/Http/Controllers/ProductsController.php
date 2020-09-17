@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Products;
 use App\Category;
+use App\Init;
 
 use Illuminate\Http\Request;
 
@@ -20,7 +21,11 @@ class ProductsController extends Controller
     }
     public function index()
     {
-        return view('adminComponent.products',['allprod'=>Products::index()],['category'=>Category::index()]);
+        //retorna los productos,categorias,y un mensaje para la notificacion de cantidad de produtos
+        return view('adminComponent.products',
+                ['allprod'=>Products::index()],
+                ['message_of_prod_stock'=>Init::index()]
+                );
     }
 
     //comming of views addproducts
