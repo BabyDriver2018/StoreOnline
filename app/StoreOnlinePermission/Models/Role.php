@@ -17,6 +17,6 @@ class Role extends Model
     }
 
     public function permissions(){
-        return $this->belongsToMany('App\StoreOnlinePermission\Models')->withTimesTamps();
+        return $this->belongsToMany('App\StoreOnlinePermission\Models\Permission')->withTimesTamps();
     }
 }

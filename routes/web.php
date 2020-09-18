@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\User;
 use App\StoreOnlinePermission\Models\Role;
+use App\StoreOnlinePermission\Models\Permission;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index', 'InitController@index');
 Route::get('/registerVent', 'RegisterController@index');
 Route::get('/store', 'StoreController@store');
-Route::get('/addproducts', 'ProductsController@addproductsindex');
+Route::get('/addproducts', 'AddProductsController@addproducts');
 
 //use a resources
 Route::resource('products','ProductsController');
@@ -50,19 +52,46 @@ Route::post('/register/month','RegisterController@indexSelect');
 
 //test of roles
 Route::get('/test-roles', function () {
-/*
-return Role::create([
-    'name' => 'cliente',
-    'slug' => 'cliente',
-    'description' => 'Cliente del sistema',
-    'full-acces' => 'no',
-    ]);
-    */
-    //ASSING ROLE OF ADMIN TO USER
-    /*
-    $user = User::find(1);
-    $user->roles()->sync([3]);
+    
+    /*$user = User::find(2);
+    $user->roles()->sync([2]);
     return $user->roles;
     */
+    /*
+     return Role::create([
+         'name' => 'cliente',
+         'slug' => 'client',
+         'description' => 'Cliente del sistema',
+         'full-acces' => 'no',
+         ]);
+    */
+    /*
+    Role::create([
+     'name' => 'admin',
+     'slug' => 'admin',
+     'description' => 'Administrador del sistema',
+     'full-acces' => 'yes',
+     ]);
+    */
+    //ASSING ROLE OF ADMIN TO role
+    
+    //$role = role::find(1);
+    //$role->roles()->sync([1]);
+    //return $role->roles;
+
+    //create permission for roles
+    
+    return Permission::create([
+        'name' => 'View product',
+        'slug' => 'client.index',
+        'description' => 'vista del cliente',
+        'full-acces' => 'no',
+        ]);
+
+    $role = Role::find(1);
+    $role->roles()->sync([1]);
+    return $role->permissions;
+    
+
     
 });

@@ -100,47 +100,54 @@
         </div>
     </nav>
     @if (!empty($allprod)){
-        @foreach ($allprod as $allproduc){
-            <section class="page-section">
+        
+            <section class="page-section cta">
                 <div class="container">
-                    <div class="product-item">
-                        <div class="product-item-title d-flex">
-                            <div class="bg-faded p-5 d-flex ml-auto rounded">
-                                <h2 class="section-heading mb-0">
-
-                                    <span class="section-heading-upper"><?= $allproduc->name ?>
-                                      {{-- Link para eliminar un producto
-                                        --}}
-                                        <button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
-                                    <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
-                                </span>
-
-                                <span class="section-heading-lower"><?= $allproduc->category->name ?>
-                                </span>
-
-                                <span class="section-heading-lower">Precio: S/ <?= $allproduc->price ?>
-                                </span>
-                                
-                                <span class="section-heading-lower">Stock: <?= $allproduc->stock ?>
-                                </span>
-
+                    <div class="row">
+                        <div class="col-xl-12 mx-auto">
+                            <div class="cta-inner text-center rounded">
+                                <h2 class="section-heading mb-7">
+                                    <span class="section-heading-upper">Lista de Productos</span>
                                 </h2>
-                            </div>
-
-                          </div>
-                          <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="480" height="300"/>
-                          <div class="product-item-description d-flex mr-auto">
-                            <div class="bg-faded p-5 rounded">
-                              <h2 class="section-heading mb-4">
-                                <span class="section-heading-lower">Descripción</span>
-                              </h2>
-                                <p class="mb-0"><?= $allproduc['description'] ?></p>
+                                
+                                    <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Stock</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Categoria</th>
+                                            <th scope="col">Acciones</th>
+                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($allprod as $allproduc)
+                                                <tr>
+                                                    <th scope="row"><?= $allproduc->id ?></th>
+                                                    <td><?= $allproduc->name ?></td>
+                                                    <td><?= $allproduc->price ?></td>
+                                                    <td><?= $allproduc->description ?></td>
+                                                    <td><?= $allproduc->stock ?></td>
+                                                    <td><img  src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="30"/></td>
+                                                    <td><?= $allproduc->category->name ?></td>
+                                                    <td><button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
+                                                        <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                      </table>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        @endforeach
+        
     }
 @else{
         <h1 class="text-center navbar-nav mx-auto " >

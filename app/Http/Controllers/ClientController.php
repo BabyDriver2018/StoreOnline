@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
-use App\Products;
-use App\Category;
+
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -17,7 +16,13 @@ class ClientController extends Controller
     public function index()
     {
         //
-        return view('clientComponent.client',['allprod'=>Products::index()],['allcategory'=>Category::index()]);
+        return view('clientComponent.client',['allprod'=>Client::index()]);
+    }
+
+    public function showProd($productbuy_id){
+        //dd($productbuy_id);
+        return view('clientComponent.buyclient',['product'=>Client::showprod($productbuy_id)]);
+
     }
 
     /**
@@ -71,11 +76,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     //method for buy product use a client
-    public function showProd($productbuy_id){
-        //dd($productbuy_id);
-        return view('clientComponent.buyclient',['product'=>Products::showprod($productbuy_id)]);
-
-    }
+    
     public function update(Request $request, Client $client)
     {
         //
