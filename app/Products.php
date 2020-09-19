@@ -1,8 +1,8 @@
 <?php
 
 namespace App;
-use App\Category;
-use Hamcrest\Type\IsObject;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
@@ -14,14 +14,23 @@ class Products extends Model
     protected $fillable = ['id', 'name', 'description','price', 'stock','image','idcategory'];
 
     //show all productos
-    public static function index(){
+    public static function index($request){
+
+        if($request->name){
+            $allprod = new Products();
+            $allprod=DB::table('products')->where('name','like',"%$request->name%")->get();
+            //dd($allprod);
+            //dd($newprod);
+            return $allprod;
+        }
+        else{
         $allprod = Products::all();
         //var_dump($allprod);exit();
         //dd($allprod[0]->category);
-        
+        //dd($allprod);
         return $allprod;
+        }
     }
-
     //method for update prod
     public static function updateProd($request){
         //dd($request->product);
@@ -46,16 +55,15 @@ class Products extends Model
         $editprod->save();
         return "El producto se edito con exito!";
     }
-
     //show one prod
     public static function show($id){
         $oneprod = Products::findOrFail($id);
         //dd($oneprod->toarray());
         return $oneprod->toarray();
     }
-
     //Method for add products of ProductsController
     public static function addProd($request){
+        //en este metodo se agrega el producto
         $newProd = new Products();
         $newProd->name =$request->input('name');
         $newProd->description =$request->input('description');
@@ -84,7 +92,6 @@ class Products extends Model
         $file->move('uploads/products/img',$filename);
         return $filename;
     }
-
     //Method for delete product
     public static function deleteProd($id){
         
@@ -97,7 +104,6 @@ class Products extends Model
         
         return $product->toarray();
     }
-
     public function category()
     {
         //RELACION DE UNO A MUCHOS; UNA CATEGORIA TIENE MUCHOS PRODUCTOS

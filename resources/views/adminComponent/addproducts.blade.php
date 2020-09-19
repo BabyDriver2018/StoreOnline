@@ -66,7 +66,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
             <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-                href="{{ url('/home') }}">LYKER</a>
+                href="{{ url('/home') }}">LEYKER</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -114,18 +114,17 @@
                             <span class="section-heading-upper">Agregar Producto</span>
                         </h2>
                         <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                            <form action="{{ action('ProductsController@store') }}" method="post"
-                                class="form-horizontal" enctype="multipart/form-data">
+                            <form action="../public/addproducts" method="post" class="form-horizontal"
+                                enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 {{ method_field('POST') }}
                                 <div class="form-group">
-                                    <!-- Se tiene q modificar con una base de datos -->
                                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categoria:</label>
                                     <select class="custom-select my-2 mr-sm-2" name="category" id="category">
                                         <!-- Show all category of products -->
                                         @foreach ($category as $categories)
-                                            <option value="<?= $categories['id'] ?>"><?= $categories['name'] ?></option>
+                                            <option value="<?= $categories->id ?>"><?= $categories->name ?></option>
                                         @endforeach
                                         <!-- end show products -->
                                     </select>

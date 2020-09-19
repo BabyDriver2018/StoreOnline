@@ -28,12 +28,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Routes views
 Route::get('/index', 'InitController@index');
 Route::get('/registerVent', 'RegisterController@index');
-Route::get('/store', 'StoreController@store');
-Route::get('/addproducts', 'AddProductsController@addproducts');
+Route::get('/store', 'StoreController@index');
+Route::get('/addproducts', 'AddProductsController@index');
 
-//use a resources
-Route::resource('products','ProductsController');
-//tratar de usar
+//product index
+Route::get('/products','ProductsController@index');
+Route::post('/products','ProductsController@index');
+//product add
+Route::post('/addproducts','ProductsController@store');
 
 ///route for  delete product
 Route::get("/{id}/delete","ProductsController@delete");
@@ -42,6 +44,9 @@ Route::get("/{id}/delete","ProductsController@delete");
 Route::get("/products/{id}","ProductsController@show");
 Route::post("/products/edit","ProductsController@updateProd");
 
+//Route for search productos
+//Route::post('/products/search-prod','ProductsController@search_prod');
+
 // add teste buy use a client
 Route::get('/client','ClientController@index');
 Route::get('/client/{productbuy_id}/buy','ClientController@showProd');
@@ -49,6 +54,7 @@ Route::get('/client/{productbuy_id}/buy','ClientController@showProd');
 //route search registros use a client
 Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');
 Route::post('/register/month','RegisterController@indexSelect');
+
 
 //test of roles
 Route::get('/test-roles', function () {

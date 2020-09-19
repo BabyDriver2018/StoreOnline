@@ -18,7 +18,7 @@ class AddProductsController extends Controller
     {
         $this->middleware('auth');
     }
-    public function addproducts()
+    public function index()
     {
         //RETORNAMOS A LA VISTA ADDPRODUCTS
         return view('adminComponent.addproducts',['category' => Category::index()],['message_of_prod_stock'=>Init::index()]);

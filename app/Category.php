@@ -14,8 +14,8 @@ class Category extends Model
 
     public static function index(){
         $category = Category::all();
-        //dd($category); comprobamos 
-        return $category->toarray();
+        //dd($category);
+        return $category;
     }
     
     public function products()

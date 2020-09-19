@@ -100,48 +100,64 @@
         </div>
     </nav>
     @if (!empty($allprod)){
-        
-            <section class="page-section cta">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12 mx-auto">
-                            <div class="cta-inner text-center rounded">
-                                <h2 class="section-heading mb-7">
-                                    <span class="section-heading-upper">Lista de Productos</span>
-                                </h2>
-                                
-                                    <table class="table table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Precio</th>
-                                            <th scope="col">Descripcion</th>
-                                            <th scope="col">Stock</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Categoria</th>
-                                            <th scope="col">Acciones</th>
-                                            
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($allprod as $allproduc)
-                                                <tr>
-                                                    <th scope="row"><?= $allproduc->id ?></th>
+
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 mx-auto">
+                        <div class="cta-inner text-center rounded">
+                            <h2 class="section-heading mb-7">
+                                <span class="section-heading-upper">Lista de Productos</span>
+                            </h2>
+                            <br>
+
+                            <form action="../public/products" method="post" class="form-horizontal"
+                                enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                {{ method_field('PATCH') }}
+                                {{ method_field('POST') }}
+                                <div class="search-prod">
+                                    <input type="text" name="name" placeholder="buscar producto">
+                                    {{-- <input type="text" class="form-control"
+                                        name="name" placeholder="Nombre del Producto" required minlength="3">
+                                    --}}
+                                    <button type="submit" class="btn btn-default">Buscar</button>
+                                </div>
+                            </form>
+
+                            <br>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Descripcion</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Acciones</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($allprod as $allproduc)
+                                        <tr>
+                                            <th scope="row"><?= $allproduc->id ?></th>
                                                     <td><?= $allproduc->name ?></td>
                                                     <td><?= $allproduc->price ?></td>
                                                     <td><?= $allproduc->description ?></td>
                                                     <td><?= $allproduc->stock ?></td>
-                                                    <td><img  src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="30"/></td>
-                                                    <td><?= $allproduc->category->name ?></td>
+                                                    <td><img src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="35"/></td>
+                                                    <td><?= @$allproduc->category->name ?></td>
                                                     <td><button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
                                                         <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
-                                      </table>
-                                
+                                    </table>
+                                    
                             </div>
                         </div>
                     </div>
