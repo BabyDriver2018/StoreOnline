@@ -1,8 +1,6 @@
 <?php
 
 namespace App;
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
@@ -17,10 +15,15 @@ class Products extends Model
     public static function index($request){
 
         if($request->name){
-            $allprod = new Products();
-            $allprod=DB::table('products')->where('name','like',"%$request->name%")->get();
+            //$allprod = new Products();
+            // $allprod=DB::table('products')->where('id','=',$request->name)
+            //                               ->orWhere('name','like',"%$request->name%")
+            //                               ->get();
+            // //dd($allprod[0]->name);
+            $allprod=Products::where('id','=',$request->name)->orWhere('name','like',"%$request->name%")->get();
+
             //dd($allprod);
-            //dd($newprod);
+            
             return $allprod;
         }
         else{
