@@ -104,7 +104,7 @@
         <section class="page-section cta">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-12 mx-auto">
+                    <div class="col-xl-13 mx-auto">
                         <div class="cta-inner text-center rounded">
                             <h2 class="section-heading mb-7">
                                 <span class="section-heading-upper">Lista de Productos</span>
@@ -126,6 +126,7 @@
                             </form>
 
                             <br>
+                            <div class="table-responsive-sm">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -157,7 +158,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    
+                                    <div class="table-responsive">
                             </div>
                         </div>
                     </div>
