@@ -52,17 +52,19 @@ Route::post('/register/month','RegisterController@indexSelect');
 Route::get('/test-roles', function () {
 /*
 return Role::create([
-    'name' => 'cliente',
-    'slug' => 'cliente',
-    'description' => 'Cliente del sistema',
-    'full-acces' => 'no',
+    'name' => 'admin',
+    'slug' => 'administrador',
+    'description' => 'Administrador del sistema',
+    'full-acces' => 'yes',
     ]);
-    */
+*/
     //ASSING ROLE OF ADMIN TO USER
-    /*
+
     $user = User::find(1);
-    $user->roles()->sync([3]);
+    $user->roles()->sync([5]);
     return $user->roles;
-    */
-    
+
+
+
 });
+
