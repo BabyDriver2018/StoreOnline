@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Init;
-use App\Register;
+use App\Models\Init;
+use App\Models\Register;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -46,48 +46,4 @@ class RegisterController extends Controller
         return view('adminComponent.index',['message'=>Register::addregister($request,$product_id,$idcategory)]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Register $register)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Register $register)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Register $register)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Register  $register
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Register $register)
-    {
-        //
-    }
 }

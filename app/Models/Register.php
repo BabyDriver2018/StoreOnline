@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 use Carbon\Carbon;
-use App\Products;
-use App\Category;
+use App\Models\Products;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Register extends Model
@@ -15,7 +15,7 @@ class Register extends Model
 
     public static function index(){
         $allregister = Register::all();
-        return $allregister->toarray();
+        return $allregister;
     }
     
     public static function addregister($request,$product_id,$idcategory){
@@ -53,8 +53,8 @@ class Register extends Model
     }
     public static function registermonth($request){
         
-        $newregister = Register::all()->where('month','=',$request->month)->where('year','=',$request->year);
+        $newregister = Register::all()->where('month',$request->month)->where('year',$request->year);
         //dd($newregister);
-        return $newregister->toarray();
+        return $newregister;
     }
 }

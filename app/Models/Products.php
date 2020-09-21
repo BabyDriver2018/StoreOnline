@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
@@ -15,6 +15,7 @@ class Products extends Model
     public static function index($request){
 
         if($request->name){
+            //dd("sjfksj");
             //$allprod = new Products();
             // $allprod=DB::table('products')->where('id','=',$request->name)
             //                               ->orWhere('name','like',"%$request->name%")
@@ -27,6 +28,7 @@ class Products extends Model
             return $allprod;
         }
         else{
+            //dd("sjfksj------");
         $allprod = Products::all();
         //var_dump($allprod);exit();
         //dd($allprod[0]->category);
@@ -107,9 +109,14 @@ class Products extends Model
         
         return $product->toarray();
     }
+    public static function viewimg($id){
+        $imgprod = Products::find($id);
+        //dd($imgprod);
+        return $imgprod->toarray();
+    }
     public function category()
     {
         //RELACION DE UNO A MUCHOS; UNA CATEGORIA TIENE MUCHOS PRODUCTOS
-        return $this->belongsTo('App\Category','idcategory');
+        return $this->belongsTo('App\Models\Category','idcategory');
     }
 }

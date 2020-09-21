@@ -73,7 +73,7 @@
                         </a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registervent') }}">Registro
                             de
                             Ventas</a>
                     </li>
@@ -135,7 +135,7 @@
                                         <th scope="col">Precio</th>
                                         <th scope="col">Descripcion</th>
                                         <th scope="col">Stock</th>
-                                        <th scope="col">Image</th>
+                                        <th scope="col">Imagen</th>
                                         <th scope="col">Categoria</th>
                                         <th scope="col">Acciones</th>
 
@@ -146,10 +146,10 @@
                                         <tr>
                                             <th scope="row"><?= $allproduc->id ?></th>
                                                     <td><?= $allproduc->name ?></td>
-                                                    <td><?= $allproduc->price ?></td>
+                                                    <td>S/<?= $allproduc->price ?></td>
                                                     <td><?= $allproduc->description ?></td>
                                                     <td><?= $allproduc->stock ?></td>
-                                                    <td><img src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="35"/></td>
+                                                    <td><a href="../public/products/view/{{$allproduc->id}}"><img src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="35"/></a></td>
                                                     <td><?= @$allproduc->category->name ?></td>
                                                     <td><button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
                                                         <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
