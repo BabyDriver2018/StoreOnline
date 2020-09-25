@@ -112,7 +112,7 @@ class Products extends Model
     public static function viewimg($id){
         $imgprod = Products::find($id);
         //dd($imgprod);
-        return $imgprod->toarray();
+        return $imgprod;
     }
     public function category()
     {
