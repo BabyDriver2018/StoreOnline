@@ -27,13 +27,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Routes views
 Route::get('/index', 'InitController@index');
-Route::get('/registerVent', 'RegisterController@index');
+Route::get('/registervent', 'RegisterController@index');
 Route::get('/store', 'StoreController@index');
 Route::get('/addproducts', 'AddProductsController@index');
 
 //product index
 Route::get('/products','ProductsController@index');
 Route::post('/products','ProductsController@index');
+
 //product add
 Route::post('/addproducts','ProductsController@store');
 
@@ -43,9 +44,8 @@ Route::get("/{id}/delete","ProductsController@delete");
 //route for edit prod
 Route::get("/products/{id}","ProductsController@show");
 Route::post("/products/edit","ProductsController@updateProd");
+Route::get("/products/view/{id}","ProductsController@viewimg");
 
-//Route for search productos
-//Route::post('/products/search-prod','ProductsController@search_prod');
 
 // add teste buy use a client
 Route::get('/client','ClientController@index');
@@ -53,7 +53,8 @@ Route::get('/client/{productbuy_id}/buy','ClientController@showProd');
 
 //route search registros use a client
 Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');
-Route::post('/register/month','RegisterController@indexSelect');
+//route for see register of and using filter of month and year
+Route::post('/registervent','RegisterController@indexSelect');
 
 
 //test of roles

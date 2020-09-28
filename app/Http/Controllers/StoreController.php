@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Init;
-use App\Store;
+use App\Models\Init;
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller

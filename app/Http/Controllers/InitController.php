@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Init;
+use App\Models\Init;
 use Illuminate\Http\Request;
 
 class InitController extends Controller

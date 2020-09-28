@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Products;
+use App\Models\Products;
 use Illuminate\Support\Facades\DB;
-use App\Init;
-use App\Category;
+use App\Models\Init;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -71,5 +71,8 @@ class ProductsController extends Controller
         return view('clientComponent.buyclient',['product'=>Products::showprod($productbuy_id)]);
 
     }
-
+    public function viewimg($id){
+        //dd($imgprod);
+        return view('adminComponent.viewimg',['imgprod'=>Products::viewimg($id)]);
+    }
 }

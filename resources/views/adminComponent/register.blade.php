@@ -78,7 +78,7 @@
                         </a>
                     </li>
                     <li class="nav-item active px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registerVent') }}">Registro de
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/registervent') }}">Registro de
                             Ventas</a>
                     </li>
                     <li class="nav-item px-lg-4">
@@ -91,6 +91,7 @@
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/addproducts') }}">Agregar
                             Productos</a>
                     </li>
+                    
                     <a class="nav-item px-lg-4" href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                         {{ __('Cerrar Sesión') }}
@@ -99,6 +100,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
+                    
                 </ul>
             </div>
         </div>
@@ -114,7 +116,7 @@
                             <h2 class="section-heading mb-4">
                                 <span class="section-heading-upper">Registro de Ventas</span>
                             </h2>
-                            <form action="../public/register/month" method="post" class="form-horizontal">
+                            <form action="../public/registervent" method="post" class="form-horizontal">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 {{ method_field('POST') }}
@@ -167,12 +169,12 @@
                                     <tbody>
                                         @foreach ($allregister as $allregisters)
                                             <tr>
-                                                <th scope="row">{{ $allregisters['id'] }}</td>
-                                                <td>{{ $allregisters['name'] }}</td>
-                                                <td>{{ $allregisters['price'] }}</td>
-                                                <td>{{ $allregisters['count'] }}</td>
-                                                <td>{{ $allregisters['total'] }}</td>
-                                                <td>{{ $allregisters['day'] }}-{{ $allregisters['month'] }}-{{ $allregisters['year'] }}
+                                                <th scope="row">{{ $allregisters->id }}</td>
+                                                <td>{{ $allregisters->name }}</td>
+                                                <td>{{ $allregisters->price }}</td>
+                                                <td>{{ $allregisters->count }}</td>
+                                                <td>{{ $allregisters->total }}</td>
+                                                <td>{{ $allregisters->day }}-{{ $allregisters->month }}-{{ $allregisters->year }}
                                                 </td>
                                             </tr>
                                         @endforeach
