@@ -28,7 +28,7 @@
 <body>
 
     <!-- Modal Message Init-->
-    @if (!empty($message_of_prod_stock))
+    @if (!empty($message))
         <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -37,7 +37,7 @@
                         <h4 class="modal-title">NOVEDADES</h4>
                     </div>
 
-                    <div class="modal-body">{{ $message_of_prod_stock }}
+                    <div class="modal-body">{{ $message }}
                     </div>
 
                     <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"

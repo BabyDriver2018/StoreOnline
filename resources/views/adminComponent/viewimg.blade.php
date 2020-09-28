@@ -71,7 +71,7 @@
     </div>
 </nav>
 
-<img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="../../uploads/products/img/<?= $imgprod->image ?>" alt="" width="600" height="400"/>
+<img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="../../uploads/products/img/{{ $imgprod }}" alt="" width="600" height="400"/>
     
 
 <footer class="footer text-faded text-center py-5">

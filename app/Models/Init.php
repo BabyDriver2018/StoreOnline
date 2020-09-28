@@ -9,6 +9,7 @@ class Init extends Model
 {
     //
     public static function index(){
+        
         //buscamos los productos q tienen menores a 5
         //dd("mes");
         $stock_Prod_in_Almacen = Products::all()->where('stock','<=',5);
