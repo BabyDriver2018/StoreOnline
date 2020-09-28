@@ -4,7 +4,6 @@ namespace App;
 use Carbon\Carbon;
 use App\Products;
 use App\Category;
-use App\Register;
 use Illuminate\Database\Eloquent\Model;
 
 class Register extends Model
@@ -21,6 +20,7 @@ class Register extends Model
     
     public static function addregister($request,$product_id,$idcategory){
         //encontramos el producto
+        //dd($idcategory);
         $newproduct = Products::find($product_id);
         //reducimos el stock
         if($newproduct->stock >= $request->input('cantidad')){

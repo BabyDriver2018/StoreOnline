@@ -16,7 +16,7 @@ class StoreController extends Controller
     {
         $this->middleware('auth');
     }
-    public function store()
+    public function index()
     {
         //
         return view(Store::index(),['message_of_prod_stock'=>Init::index()]);

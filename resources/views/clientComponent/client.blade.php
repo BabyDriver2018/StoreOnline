@@ -37,17 +37,17 @@
                             <div class="bg-faded p-5 d-flex ml-auto rounded">
                                 <h2 class="section-heading mb-0">
 
-                                    <span class="section-heading-upper"><?= $allproduc['name'] ?>
-                <button onclick="window.location='../public/client/<?= $allproduc['id'] ?>/buy'" name="buy" method='get' type="button" class="btn btn-primary">Comprar</button>
+                                    <span class="section-heading-upper"><?= $allproduc->name ?>
+                <button onclick="window.location='../public/client/<?= $allproduc->id ?>/buy'" name="buy" method='get' type="button" class="btn btn-primary">Comprar</button>
               </span>
-                <span class="section-heading-lower"><?= $allcategory[$allproduc['idcategory'] - 1]['name'] ?> - S/<?= $allproduc['price'] ?>
+              <span class="section-heading-lower"><?= $allproduc->category->name ?> - S/<?= $allproduc->price ?>
               </span>
               
             </h2>
           </div>
           
         </div>
-        <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc['image'] ?>" alt=""  width="596" height="460"/>
+        <img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="uploads/products/img/<?= $allproduc->image?>" alt=""  width="596" height="460"/>
         <div class="product-item-description d-flex mr-auto">
           <div class="bg-faded p-5 rounded">
             <h2 class="section-heading mb-4">

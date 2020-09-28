@@ -81,8 +81,7 @@
                             Ventas</a>
                     </li>
                     <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase text-expanded"
-                            href="{{ route('products.index') }}">Productos</a>
+                        <a class="nav-link text-uppercase text-expanded" href="{{ url('/products') }}">Productos</a>
                     </li>
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="{{ url('/store') }}">Tienda</a>
