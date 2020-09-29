@@ -59,11 +59,11 @@ Route::post('/registervent','RegisterController@indexSelect');
 
 //test of roles
 Route::get('/test-roles', function () {
-
-    /*$user = User::find(2);
+/*
+    $user = User::find(2);
     $user->roles()->sync([2]);
     return $user->roles;
-    */
+*/
     /*
      return Role::create([
          'name' => 'cliente',
@@ -73,32 +73,46 @@ Route::get('/test-roles', function () {
          ]);
     */
     /*
+    return
     Role::create([
      'name' => 'admin',
      'slug' => 'admin',
      'description' => 'Administrador del sistema',
      'full-acces' => 'yes',
      ]);
-    */
+*/
     //ASSING ROLE OF ADMIN TO role
-
-    //$role = role::find(1);
-    //$role->roles()->sync([1]);
-    //return $role->roles;
-
+/*
+    $user = User::find(1);
+    $user->roles()->sync([1]);
+    return $user->roles;
+*/
     //create permission for roles
-
+/*
     return Permission::create([
-        'name' => 'View product',
-        'slug' => 'client.index',
-        'description' => 'vista del cliente',
-        'full-acces' => 'no',
+        'name' => 'View Products',
+        'slug' => 'products.index',
+        'description' => 'el cliente vista los productos',
         ]);
+*/
 
+return Permission::create([
+    'name' => 'Admin View Products',
+    'slug' => 'products.index',
+    'description' => 'el admin vista los productos',
+    ]);
+
+/*
     $role = Role::find(1);
     $role->roles()->sync([1]);
     return $role->permissions;
+*/
 
+/*
+    $role = Role::find(1);
+    $role->permissions()->sync([1]);
+    return $role->permissions;
+*/
 
 
 });
