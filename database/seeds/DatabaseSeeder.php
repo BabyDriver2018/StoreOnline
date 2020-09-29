@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
+use App\StoreOnlinePermissionSeeder;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->truncateTables([
             'category'
-        ]);   
+        ]);
         $this->call(CategorySeeder::class);
     }
 
@@ -23,11 +24,11 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');//desactivar las llaves foraneas
 
         foreach ($tables as $table) {
-            DB::table($table)->truncate();//vacias las tablas   
+            DB::table($table)->truncate();//vacias las tablas
         }
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');//activar las llaves foraneas
 
-    
+
     }
 }
