@@ -33,7 +33,7 @@ Route::get('/addproducts', 'AddProductsController@index');
 
 //product index
 Route::get('/products','ProductsController@index');
-Route::post('/products','ProductsController@index');
+Route::post('/products/buscador','ProductsController@buscador');
 
 //product add
 Route::post('/addproducts','ProductsController@store');

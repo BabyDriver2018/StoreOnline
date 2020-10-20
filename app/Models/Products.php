@@ -14,27 +14,19 @@ class Products extends Model
     //show all productos
     public static function index($request){
 
-        if($request->name){
-            //dd("sjfksj");
-            //$allprod = new Products();
-            // $allprod=DB::table('products')->where('id','=',$request->name)
-            //                               ->orWhere('name','like',"%$request->name%")
-            //                               ->get();
-            // //dd($allprod[0]->name);
-            $allprod=Products::where('id','=',$request->name)->orWhere('name','like',"%$request->name%")->get();
-
-            //dd($allprod);
-            
-            return $allprod;
-        }
-        else{
+        
             //dd("sjfksj------");
         $allprod = Products::all();
         //var_dump($allprod);exit();
         //dd($allprod[0]->category);
         //dd($allprod);
         return $allprod;
-        }
+        
+    }
+    public static function buscador($request){
+        $allprod=Products::where('id','=',$request->name)->orWhere('name','like',"%$request->name%")->take(10)->get();
+        dd($allprod);
+        return $allprod;
     }
     //method for update prod
     public static function updateProd($request){

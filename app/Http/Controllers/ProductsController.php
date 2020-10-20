@@ -75,4 +75,11 @@ class ProductsController extends Controller
         //dd($imgprod);
         return view('adminComponent.viewimg',['imgprod'=>Products::viewimg($id)]);
     }
+    public function buscador(Request $request){
+        return view('adminComponent.products',
+        ['allprod'=>Products::buscador($request)],
+        ['message_of_prod_stock'=>Init::index()]
+        );
+
+    }
 }

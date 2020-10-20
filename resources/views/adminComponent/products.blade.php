@@ -111,13 +111,13 @@
                             </h2>
                             <br>
 
-                            <form action="../public/products" method="post" class="form-horizontal"
+                            <form action="/products/buscador" method="post" class="form-horizontal"
                                 enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 {{ method_field('POST') }}
                                 <div class="search-prod">
-                                    <input type="text" name="name" placeholder="buscar producto">
+                                    <input type="text" name="name" placeholder="Buscar producto">
                                     {{-- <input type="text" class="form-control"
                                         name="name" placeholder="Nombre del Producto" required minlength="3">
                                     --}}
@@ -127,29 +127,29 @@
 
                             <br>
                             <div class="table-responsive-sm">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">Descripcion</th>
-                                        <th scope="col">Stock</th>
-                                        <th scope="col">Imagen</th>
-                                        <th scope="col">Categoria</th>
-                                        <th scope="col">Acciones</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($allprod as $allproduc)
+                                <table class="table table-striped">
+                                    <thead>
                                         <tr>
-                                            <th scope="row"><?= $allproduc->id ?></th>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Stock</th>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Categoria</th>
+                                            <th scope="col">Acciones</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($allprod as $allproduc)
+                                            <tr>
+                                                <th scope="row"><?= $allproduc->id ?></th>
                                                     <td><?= $allproduc->name ?></td>
                                                     <td>S/<?= $allproduc->price ?></td>
                                                     <td><?= $allproduc->description ?></td>
                                                     <td><?= $allproduc->stock ?></td>
-                                                    <td><a href="../public/products/view/{{$allproduc->id}}"><img src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="35"/></a></td>
+                                                    <td><a href="../public/products/view/{{ $allproduc->id }}"><img src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="35"/></a></td>
                                                     <td><?= @$allproduc->category->name ?></td>
                                                     <td><button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
                                                         <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
