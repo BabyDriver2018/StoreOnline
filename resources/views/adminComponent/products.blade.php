@@ -26,6 +26,7 @@
 </head>
 
 <body>
+
     <!-- Modal Message Init-->
     @if (!empty($message_of_prod_stock))
         <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px;">
@@ -99,9 +100,10 @@
             </div>
         </div>
     </nav>
-    @if (!empty($allprod)){
+    @if (!empty($allprod))
 
         <section class="page-section cta">
+
             <div class="container">
                 <div class="row">
                     <div class="col-xl-13 mx-auto">
@@ -111,22 +113,21 @@
                             </h2>
                             <br>
 
-                            <form action="/products/buscador" method="post" class="form-horizontal"
-                                enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                {{ method_field('PATCH') }}
-                                {{ method_field('POST') }}
-                                <div class="search-prod">
-                                    <input type="text" name="name" placeholder="Buscar producto">
-                                    {{-- <input type="text" class="form-control"
-                                        name="name" placeholder="Nombre del Producto" required minlength="3">
-                                    --}}
-                                    <button type="submit" class="btn btn-default">Buscar</button>
+                            {{-- <form action="/products" method="get"
+                                class="form-horizontal" enctype="multipart/form-data"> --}}
+
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="name" placeholder="Buscar Pulseras">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Buscar</span>
+                                    </div>
                                 </div>
-                            </form>
+                                {{--
+                            </form> --}}
 
                             <br>
-                            <div class="table-responsive-sm">
+
+                            <div class="table-responsive-sm" id="respuesta">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -149,7 +150,7 @@
                                                     <td>S/<?= $allproduc->price ?></td>
                                                     <td><?= $allproduc->description ?></td>
                                                     <td><?= $allproduc->stock ?></td>
-                                                    <td><a href="../public/products/view/{{ $allproduc->id }}"><img src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="35"/></a></td>
+                                                    <td><a href="/products/view/{{ $allproduc->id }}"><img src="uploads/products/img/<?= $allproduc->image ?>" alt="" width="50" height="35"/></a></td>
                                                     <td><?= @$allproduc->category->name ?></td>
                                                     <td><button onclick="window.location='../public/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
                                                         <button onclick="window.location='../public/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
@@ -160,19 +161,20 @@
                                     </table>
                                     <div class="table-responsive">
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </section>
-        
-    }
-@else{
+              
+    
+@else
         <h1 class="text-center navbar-nav mx-auto " >
 
             No hay productos
         </h1>
 
-    }
+    
     @endif
 
 <footer class="footer text-faded text-center py-5">
@@ -187,10 +189,25 @@
 
 </div>
 </footer>
+<script>
+    window.addEventListener("load",function(){
+        document.getElementById("name").addEventListener("keyup",function(){
+            fetch(`/products?name=${document.getElementById("name").value}`,{
+                method:'get'
+                })
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("respuesta").innerHTML = html
+                })
+                
+        })
+    })
+</script>
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{ asset('jquery/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bootstrap/js/buscador.js') }}"></script>
 </body>
 
 </html>

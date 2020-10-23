@@ -23,17 +23,17 @@ Route::get('/', function () {
 
 //Route for login and register
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ProductsController@index');
 
 //Routes views
-Route::get('/index', 'InitController@index');
+//Route::get('/index', 'ProductsController@index');
 Route::get('/registervent', 'RegisterController@index');
 Route::get('/store', 'StoreController@index');
 Route::get('/addproducts', 'AddProductsController@index');
 
 //product index
-Route::get('/products','ProductsController@index');
-Route::post('/products/buscador','ProductsController@buscador');
+//Route::get('/products','ProductsController@index');
+
 
 //product add
 Route::post('/addproducts','ProductsController@store');

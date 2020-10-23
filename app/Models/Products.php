@@ -14,7 +14,12 @@ class Products extends Model
     //show all productos
     public static function index($request){
 
-        
+        if($request->name)
+        {
+            $allprod=Products::where('id','=',$request->name)->orWhere('name','like',"%$request->name%")->take(10)->get();
+        //dd($allprod);
+        return $allprod;
+        }
             //dd("sjfksj------");
         $allprod = Products::all();
         //var_dump($allprod);exit();
@@ -23,11 +28,7 @@ class Products extends Model
         return $allprod;
         
     }
-    public static function buscador($request){
-        $allprod=Products::where('id','=',$request->name)->orWhere('name','like',"%$request->name%")->take(10)->get();
-        dd($allprod);
-        return $allprod;
-    }
+    
     //method for update prod
     public static function updateProd($request){
         //dd($request->product);

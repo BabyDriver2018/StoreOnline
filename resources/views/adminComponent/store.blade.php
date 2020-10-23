@@ -116,27 +116,27 @@
                             </li>
                             <li class="list-unstyled-item list-hours-item d-flex">
                                 Lunes
-                                <span class="ml-auto">8:00 AM to 8:00 PM</span>
+                                <span class="ml-auto">8:00 AM - 8:00 PM</span>
                             </li>
                             <li class="list-unstyled-item list-hours-item d-flex">
                                 Martes
-                                <span class="ml-auto">8:00 AM to 8:00 PM</span>
+                                <span class="ml-auto">8:00 AM - 8:00 PM</span>
                             </li>
                             <li class="list-unstyled-item list-hours-item d-flex">
                                 Miercoles
-                                <span class="ml-auto">8:00 AM to 8:00 PM</span>
+                                <span class="ml-auto">8:00 AM - 8:00 PM</span>
                             </li>
                             <li class="list-unstyled-item list-hours-item d-flex">
                                 Jueves
-                                <span class="ml-auto">8:00 AM to 8:00 PM</span>
+                                <span class="ml-auto">8:00 AM - 8:00 PM</span>
                             </li>
                             <li class="list-unstyled-item list-hours-item d-flex">
                                 Viernes
-                                <span class="ml-auto">8:00 AM to 8:00 PM</span>
+                                <span class="ml-auto">8:00 AM - 8:00 PM</span>
                             </li>
                             <li class="list-unstyled-item list-hours-item d-flex">
                                 Sabado
-                                <span class="ml-auto">8:00 AM to 5:00 PM</span>
+                                <span class="ml-auto">8:00 AM - 5:00 PM</span>
                             </li>
                         </ul>
                         <p class="address mb-5">

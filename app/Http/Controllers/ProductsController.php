@@ -23,7 +23,7 @@ class ProductsController extends Controller
     public function index(Request $request){   
         //retorna los productos,categorias,y un mensaje para la notificacion de cantidad de produtos
         //dd("test");
-        return view('adminComponent.products',
+        return view('adminComponent.index',
                 ['allprod'=>Products::index($request)],
                 ['message_of_prod_stock'=>Init::index()]
                 );
@@ -75,11 +75,5 @@ class ProductsController extends Controller
         //dd($imgprod);
         return view('adminComponent.viewimg',['imgprod'=>Products::viewimg($id)]);
     }
-    public function buscador(Request $request){
-        return view('adminComponent.products',
-        ['allprod'=>Products::buscador($request)],
-        ['message_of_prod_stock'=>Init::index()]
-        );
-
-    }
+    
 }
