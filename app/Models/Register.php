@@ -38,8 +38,17 @@ class Register extends Model
             $newregister->total =($newproduct['price'])*($request->input('cantidad'));
             // calculamos las ventas totales
             $last = Register::all()->last();
+            //dd($last);
+            if($last){
+                //dd("vXX");
+                $newregister->totalventa =  $last->totalventa + $newregister->total ;
+            }
+            else{
+                //dd("YYY");
+                $last=0;
+                $newregister->totalventa =  $last + $newregister->total ;
+            }
             //dd($last->totalventa);
-            $newregister->totalventa =  $last->totalventa + $newregister->total ;
             $newregister->idproduct = $product_id;
             $newregister->idcategory = $idcategory;
                 $month = Carbon::now();
