@@ -12,7 +12,7 @@ class Register extends Model
 {
     protected $table = 'registers';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'name', 'price','genero', 'cantidad','total','idproduct','idcategory'];
+    protected $fillable = ['id', 'name', 'price','genero', 'cantidad','total','totalventa','idproduct','idcategory'];
     public $timestamps=false;
 
     public static function index(){
@@ -20,7 +20,7 @@ class Register extends Model
 
         return $allregister;
     }
-    
+
     public static function addregister($request,$product_id,$idcategory){
         //encontramos el producto
         //dd($idcategory);
@@ -36,10 +36,17 @@ class Register extends Model
             $newregister->price =$newproduct['price'];
             $newregister->count =$request->input('cantidad');
             $newregister->total =($newproduct['price'])*($request->input('cantidad'));
+            $aux=$newregister->total;
             // calculamos las ventas totales
             $last = Register::all()->last();
+            //dd($last);
+            if($last){
+                $last->totalventa=0;
+            }
+            dd($last->totalventa);
             //dd($last->totalventa);
-            $newregister->totalventa =  $last->totalventa + $newregister->total ;
+            $newregister->totalventa =  $last->totalventa + $aux ;
+            $aux=0;
             $newregister->idproduct = $product_id;
             $newregister->idcategory = $idcategory;
                 $month = Carbon::now();
@@ -61,7 +68,7 @@ class Register extends Model
 
     }
     public static function registermonth($request){
-        
+
         $newregister = Register::all()->where('month',$request->month)->where('year',$request->year);
         //dd($newregister);
 
