@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Init;
+use App\Models\Products;
 use App\Models\Register;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,8 @@ class RegisterController extends Controller
      */
     public function store(Request $request,$product_id,$idcategory)
     {
-        return view('adminComponent.index',['message'=>Register::addregister($request,$product_id,$idcategory)]);
+        
+        return view('clientComponent.client',[Register::addregister($request,$product_id,$idcategory)]);
     }
 
 }

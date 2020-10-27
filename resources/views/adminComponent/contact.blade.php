@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Registro de Ventas Leyker</title>
+	<title>Contacto-Leyker</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -73,11 +73,10 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">							
-							<li >
+							<li>
 								<a href="{{url('/home')}}">Inicio</a>
 							</li>
-
-							<li class="active-menu">
+							<li>
 								<a href="{{url('/registerV')}}">Registro de Ventas</a>
 							</li>
 
@@ -85,8 +84,8 @@
 								<a href="{{url('/about')}}">Acerca de:</a>
 							</li>
 
-							<li>
-								<a href="contact">Contacto</a>
+							<li class="active-menu">
+								<a href="{{url('/contact')}}">Contacto</a>
 							</li>
 							
 						</ul>
@@ -184,108 +183,181 @@
 		</div>
 	</header>
 
+	<!-- Cart -->
+	<div class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
+
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
+				<span class="mtext-103 cl2">
+					Your Cart
+				</span>
+
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
+			
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full">
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="images/item-cart-01.jpg" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								White Shirt Pleat
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $19.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="images/item-cart-02.jpg" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Converse All Star
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $39.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="images/item-cart-03.jpg" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Nixon Porter Leather
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $17.00
+							</span>
+						</div>
+					</li>
+				</ul>
+				
+				<div class="w-full">
+					<div class="header-cart-total w-full p-tb-40">
+						Total: $75.00
+					</div>
+
+					<div class="header-cart-buttons flex-w w-full">
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+							View Cart
+						</a>
+
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+							Check Out
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('img/about-02.webp');">
 		<h2 class="ltext-105 cl0 txt-center">
-			Registro de Ventas
+			Contacto
 		</h2>
 	</section>	
 
 
 	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120">
+	<section class="bg0 p-t-104 p-b-116">
 		<div class="container">
-			<div class="about-heading-content">
-                <div class="row">
-                    <div class="col-xl-9 col-lg-10 mx-auto">
-                        <div class="bg-faded rounded p-5">
-                            <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Registro de Ventas</span>
-							</h2>
-							{{-- buscar registros --}}
-                            <form action="../public/registervent" method="post" class="form-horizontal">
-                                {{ csrf_field() }}
-                                {{ method_field('PATCH') }}
-                                {{ method_field('POST') }}
-								{{-- Años filter --}}
-                                <div class="form-group">
-                                    <label class="control-label col-sm-20">Año:</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" value="2020" min="2020" max="2024" class="form-control"
-                                            name="year" placeholder="Ingrese el año que desea mostrar"
-                                            pattern="[0-9]{4,4}">
-                                    </div>
-								</div>
-								{{-- Calendario filter --}}
-                                <div class="form-group">
-                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Mes:</label>
-                                    <select class="custom-select my-2 mr-sm-2" name="month" id="month" required>
-                                        <!-- Show all month of products -->
-                                        <option value="01">ENERO</option>
-                                        <option value="02">FEBRERO</option>
-                                        <option value="03">MARZO</option>
-                                        <option value="04">ABRIL</option>
-                                        <option value="05">MAYO</option>
-                                        <option value="06">JUNIO</option>
-                                        <option value="07">JULIO</option>
-                                        <option value="08" selected>AGOSTO</option>
-                                        <option value="09">SEPTIEMPRE</option>
-                                        <option value="10">OCTUBRE</option>
-                                        <option value="11">NOVIEMBRE</option>
-                                        <option value="12">DICIEMBRE</option>
-                                        <!-- end show month -->
-                                    </select>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-primary"> Buscar</button>
-                                    </div>
-                                </div>
-							</form>
-							{{-- table register --}}
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Precio S/</th>
-                                            <th scope="col">Cantidad</th>
-                                            <th scope="col">Total S/</th>
-                                            <th scope="col">Fecha</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($allregister as $allregisters)
-                                            <tr>
-                                                <th scope="row">{{ $allregisters->id }}</td>
-                                                <td>{{ $allregisters->name }}</td>
-                                                <td>S/ {{ $allregisters->price }}</td>
-                                                <td>{{ $allregisters->count }}</td>
-                                                <td>S/{{ $allregisters->total }}</td>
-                                                <td>{{ $allregisters->day }}-{{ $allregisters->month }}-{{ $allregisters->year }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
+			<div class="flex-w flex-tr">
 
-                                    <tbody>
+				<div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
+					<div class="flex-w w-full p-b-42">
+						<span class="fs-18 cl5 txt-center size-211">
+							<span class="lnr lnr-map-marker"></span>
+						</span>
 
-                                </table>
+						<div class="size-212 p-t-2">
+							<span class="mtext-110 cl2">
+								Direccion-Ubicacion
+							</span>
+
+							<p class="stext-115 cl6 size-213 p-t-18">
+								Huanuco / Tingo Maria / Buenos Aires - Segunda Entrada
+							</p>
+						</div>
+					</div>
+
+					<div class="flex-w w-full p-b-42">
+						<span class="fs-18 cl5 txt-center size-211">
+							<span class="lnr lnr-phone-handset"></span>
+						</span>
+
+						<div class="size-212 p-t-2">
+							<span class="mtext-110 cl2">
+								Hablemos
+							</span>
+
+							<p class="stext-115 cl1 size-213 p-t-18">
+								+51 932 488 336
+							</p>
+						</div>
+					</div>
+
+					<div class="flex-w w-full">
+						<span class="fs-18 cl5 txt-center size-211">
+							<span class="lnr lnr-envelope"></span>
+						</span>
+
+						<div class="size-212 p-t-2">
+							<span class="mtext-110 cl2">
+								Soporte 
+							</span>
+
+							<p class="stext-115 cl1 size-213 p-t-18">
+								b.mendoza@unas.edu.pe
+							</p>
+						</div>
+						<div class="flex-w w-full p-b-42">
+							<span class="fs-18 cl5 txt-center size-211">
+								<span class="lnr lnr-map-marker"></span>
+							</span>
+	
+							<div class="size-212 p-t-2">
+								<span class="mtext-110 cl2">
+									Ubicacion Web
+								</span>
+								<br>
+								<a href="https://www.google.com/maps/place/9%C2%B019'12.2%22S+75%C2%B059'39.9%22W/@-9.3200556,-75.9949639,19z/data=!3m1!4b1!4m14!1m7!3m6!1s0x91a641893b93a2c9:0xc1cdbb44b0668e30!2sTingo+Mar%C3%ADa+10131!3b1!8m2!3d-9.2976466!4d-76.0000202!3m5!1s0x0:0x0!7e2!8m2!3d-9.3200545!4d-75.994419" target="_blank"
+								>
+								Ubicacion en Google Maps
+								</a>
 							</div>
-							<div>
-								<p>
-									Total de Ventas ----------------------------------------------------------------------------------------------> S/ {{$allregisters->totalventa}}
-								</p>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+					<div class="how-bor1 ">
+						<div class="hov-img0">
+							<img src="img/about-01.webp" alt="IMG">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>	
-	
-		
 
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
@@ -477,7 +549,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		});
 	</script>
 <!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="js/map-custom.js"></script>
+<!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	
+
 </body>
 </html>

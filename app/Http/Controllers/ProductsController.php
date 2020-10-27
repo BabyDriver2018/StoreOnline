@@ -24,8 +24,8 @@ class ProductsController extends Controller
         //retorna los productos,categorias,y un mensaje para la notificacion de cantidad de produtos
         //dd("test");
         return view('adminComponent.index',
-                ['allprod'=>Products::index($request)],
-                ['message_of_prod_stock'=>Init::index()]
+                ['allprod'=>Products::index($request->name)],
+                ['category'=>Category::index()]
                 );
     }
     //comming of views addproducts
@@ -37,32 +37,35 @@ class ProductsController extends Controller
         //si existe un nombre igual, entra y envia un mensaje eliminando los datos previamente ingresados
         if(count($validarname)){
             //dd($validarname);
-            return view ('adminComponent.addproducts',['message_of_prod_stock'=> 'El nombre ya existe!'],['category'=>Category::index()]);
+            return redirect ('/home',['message_of_prod_stock'=> 'El nombre ya existe!']);
         }
         
         //si no existe, entra aca y agrega el producto
         else{
             //dd("el producto se agregara");
-            return view ('adminComponent.index',['message'=> Products::addProd($request)]);
+            Products::addProd($request);
+            return redirect ('/home');
         }
     }
 
     //Methos for Update prod
     public function updateProd(Request $request){
         //dd($request);
-        return view ('adminComponent.index',[ 'message'=>Products::updateProd($request)]);
+        Products::updateProd($request);
+        return redirect ('/home');
     }
 
     public function delete($id){
         //
         //dd($id);
-        return view ('adminComponent.index',[ 'message'=>Products::deleteProd($id)]);
+        Products::deleteProd($id);
+        return redirect ('/home');
     }
 
 
     public function show($id){
         //dd($id);
-        return view('prodEditComponent.edit',['oneprod'=>Products::show($id)]);
+        return view('adminComponent.edit',['oneprod'=>Products::show($id)]);
 
     }
 

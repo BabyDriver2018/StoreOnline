@@ -12,11 +12,11 @@ class Products extends Model
     protected $fillable = ['id', 'name', 'description','price', 'stock','image','idcategory'];
 
     //show all productos
-    public static function index($request){
+    public static function index($name){
 
-        if($request->name)
+        if($name)
         {
-            $allprod=Products::where('id','=',$request->name)->orWhere('name','like',"%$request->name%")->take(10)->get();
+            $allprod=Products::where('id','=',$name)->orWhere('name','like',"%$name%")->take(10)->get();
         //dd($allprod);
         return $allprod;
         }
@@ -57,7 +57,7 @@ class Products extends Model
     public static function show($id){
         $oneprod = Products::findOrFail($id);
         //dd($oneprod->toarray());
-        return $oneprod->toarray();
+        return $oneprod;
     }
     //Method for add products of ProductsController
     public static function addProd($request){
@@ -77,8 +77,6 @@ class Products extends Model
         $newProd->idcategory = $request->input('category');
         
         $newProd->save();
-        
-        return 'El producto se agrego con exito!';
     }
     //Method for validate iamge
     public static function verifImage($request){
@@ -94,7 +92,7 @@ class Products extends Model
     public static function deleteProd($id){
         
         Products::destroy($id);
-        return 'El Productos se Elimino con Exito!';
+        
     }
     //Method for see producto test buy client
     public static function showprod($productbuy_id){

@@ -38,7 +38,7 @@
                                 <h2 class="section-heading mb-0">
 
                                     <span class="section-heading-upper"><?= $allproduc->name ?>
-                <button onclick="window.location='../public/client/<?= $allproduc->id ?>/buy'" name="buy" method='get' type="button" class="btn btn-primary">Comprar</button>
+                <button onclick="window.location='/client/<?= $allproduc->id ?>/buy'" name="buy" method='get' type="button" class="btn btn-primary">Comprar</button>
               </span>
               <span class="section-heading-lower"><?= $allproduc->category->name ?> - S/<?= $allproduc->price ?>
               </span>

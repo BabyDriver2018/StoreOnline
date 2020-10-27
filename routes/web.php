@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\User;
-use App\StoreOnlinePermission\Models\Role;
 use App\StoreOnlinePermission\Models\Permission;
 
 /*
@@ -26,17 +24,15 @@ Auth::routes();
 Route::get('/home', 'ProductsController@index');
 
 //Routes views
-//Route::get('/index', 'ProductsController@index');
-Route::get('/registervent', 'RegisterController@index');
-Route::get('/store', 'StoreController@index');
-Route::get('/addproducts', 'AddProductsController@index');
-
-//product index
-//Route::get('/products','ProductsController@index');
-
+Route::get('/registerV', 'RegisterController@index');
+Route::get('/contact', 'StoreController@index');
 
 //product add
 Route::post('/addproducts','ProductsController@store');
+
+//about store
+Route::get('/about','StoreController@about');
+
 
 ///route for  delete product
 Route::get("/{id}/delete","ProductsController@delete");

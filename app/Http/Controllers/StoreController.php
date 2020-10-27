@@ -21,6 +21,9 @@ class StoreController extends Controller
         //
         return view(Store::index(),['message_of_prod_stock'=>Init::index()]);
     }
+    public function about(){
+        return view('admincomponent.about');
+    }
 
     
 }

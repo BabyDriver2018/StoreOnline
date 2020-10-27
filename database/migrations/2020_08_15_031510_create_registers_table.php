@@ -19,6 +19,7 @@ class CreateRegistersTable extends Migration
             $table->float('price');
             $table->integer('count');
             $table->float('total');
+            $table->integer('totalventa');
             $table->Integer('idproduct')->unsigned();
             $table->foreign('idproduct')->references('id')->on('products')->onDelete('cascade');
             $table->Integer('idcategory')->unsigned();

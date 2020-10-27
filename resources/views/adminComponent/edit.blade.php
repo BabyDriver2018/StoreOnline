@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>LEYKER</title>
+	<title>Editar Producto</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href=" {{ asset('vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -34,8 +35,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body class="animsition">
 	
@@ -75,7 +74,7 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 					
 					<!-- Logo desktop -->		
 					<a href="{{url('/home')}}" class="logo">
-						<img src="img/icons/logo-01.jpeg" alt="IMG-LOGO">
+						<img src="{{ asset('img/icons/logo-01.jpeg')}}" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -129,7 +128,7 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-			<a href="{{url('/home')}}"><img src="img/icons/logo-01.jpeg" alt="IMG-LOGO"></a>
+			<a href="{{url('/home')}}"><img src=" {{ asset('img/icons/logo-01.jpeg') }}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Button show menu -->
@@ -150,8 +149,6 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 					<a href="{{url('/home')}}">Inicio</a>
 					
 				</li>
-
-				
 
 				<li>
 					<a href="{{url('/register')}}">Registro de Ventas</a>
@@ -278,277 +275,113 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 		</div>
 	</div>
 
+
+	<!-- breadcrumb -->
+	{{-- <div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+				Home
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
+				Men
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<span class="stext-109 cl4">
+				Lightweight Jacket
+			</span>
+		</div>
+	</div> --}}
 		
 
-	<!-- Slider -->
-	<section class="section-slide">
-		<div class="wrap-slick1">
-			<!-- primeras imagenes -->
-			<div class="slick1">
-				<div class="item-slick1" style="background-image: url(img/banner-01.jpg);">
-					<div class="container h-full">
-						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 cl2 respon2">
-									Coleccion Mujeres 2020
-								</span>
-							</div>
-								
-							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									NUEVA TEMPORADA
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick1" style="background-image: url(img/banner-02.jpg);">
-					<div class="container h-full">
-						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
-								<span class="ltext-101 cl2 respon2">
-									Hombres nueva temporada
-								</span>
-							</div>
-								
-							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									Pulseras 2020
-								</h2>
-							</div>
-								
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Banner -->
-	<div class="sec-banner bg0 p-t-80 p-b-50">
+	<!-- Product Detail -->
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="img/women.jpg" alt="IMG-BANNER">
+				<div class="col-md-6 col-lg-7 p-b-30">
+					<div class="p-l-25 p-r-30 p-lr-0-lg">
+						<div class="wrap-slick3 flex-sb flex-w">
+							
 
-						<a href="#" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Mujer
-								</span>
+							<div class="slick3 gallery-lb">
+								<div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+									<div class="wrap-pic-w pos-relative">
+										<img src="../uploads/products/img/<?= $oneprod['image'] ?>" alt="IMG-PRODUCT">
 
-								<span class="block1-info stext-102 trans-04">
-									Primavera 2020
-								</span>
+										
+									</div>
+								</div>
 							</div>
-						</a>
+						</div>
 					</div>
 				</div>
-
-				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="img/men.jpg" alt="IMG-BANNER">
-
-						<a href="#" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Hombre
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									Primavera 2020
-								</span>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<!-- Product -->
-	<section class="bg0 p-t-23 p-b-140">
-		<div class="container">
-			<div class="p-b-10">
-				<h3 class="ltext-103 cl5">
-					Productos
-				</h3>
-			</div>
-
-			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-						Todos los Productos
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".Mujer">
-						Mujer
-						
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".Hombre">
-						Hombre
-					</button>
-
-				</div>
-
-				<div class="flex-w flex-c-m m-tb-10">
-					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-						<i class=" cl2 m-r-6 fs-15 trans-04 zmdi "></i>
-						<i class=" cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						 Agregar Productos
-					</div>
-					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-						<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						Buscar
-					</div>
-				</div>
-				
-				<!-- Search product -->
-				<div class="dis-none panel-search w-full p-t-10 p-b-15">
-					<div class="bor8 dis-flex p-l-15">
-						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-							<i class="zmdi zmdi-search"></i>
-						</button>
-
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Searchas">
-					</div>	
-				</div>
-				<!-- Filter -->
-				<div class="dis-none panel-filter w-full p-t-10">
-					<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-						<ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-							<h2 class="section-heading mb-7">
-								<span class="section-heading-upper">Agregar Producto</span>
-							</h2>
-                            <form action="/addproducts" method="post" class="form-horizontal"
-                                enctype="multipart/form-data">
+					
+				<div class="col-md-6 col-lg-5 p-b-30">
+					<div class="p-r-50 p-t-5 p-lr-0-lg">
+						<form action="{{ url('/products/edit') }}" method="post"
+                                class="form-horizontal" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 {{ method_field('POST') }}
-                                <div class="form-group">
-                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categoria:</label>
-                                    <select class="custom-select my-2 mr-sm-2" name="category" id="category">
-                                        <!-- Show all category of products -->
-                                        @foreach ($category as $categories)
-                                            <option value="<?= $categories->id ?>"><?= $categories->name ?></option>
-                                        @endforeach
-                                        <!-- end show products -->
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Nombre:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name"
-                                            placeholder="Nombre del Producto" required minlength="3">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Descripcion:</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" name="description" rows="3" required
-                                            minlength="10" placeholder="Descripcion del Producto" ></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Precio:</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" min="1" class="form-control" name="price"
-                                            placeholder="Ingrese su precio" pattern="[0-9]{1,2}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2">Stock:</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" min="1" class="form-control" name="stock"
-                                            placeholder="Ingrese su stock" pattern="[0-9]{1,2}">
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="col input-group">
-                                        <div class="form-group">
-                                            <label for="image">Elegir una imagen</label>
-                                            
-        
-                                            <input type="file" class="form-control-file" name="image" id="image" accept="image/*" required>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                
-
-                                <div class="form-group mt-3">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Agregar Producto</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </ul>
-					</div>
-				</div>
-
-			</div>
-			
-			<!-- all prod -->
-			<div class="row isotope-grid">
-				@foreach ($allprod as $allproduc)
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item  {{ $allproduc->category->name}}">
-					
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="uploads/products/img/<?= $allproduc->image ?>" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Vista Rápida
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									{{$allproduc->name}}
-								</a>
-
-								<span class="stext-105 cl3">
-								 S/	{{ $allproduc->price}}
-								</span>
-								<span class="stext-105 cl3">
-									Stock=  {{ $allproduc->stock}}
-								   </span>
+						<label class="control-label col-sm-2">Categoria:</label>
+						<div class="form-group ">
+							<div class="col-sm-10">
+								<input class="form-check-input" type="radio" name="category" id="category" value="1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Hombre
+								</label>
 							</div>
-							<br>
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<br>
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<button onclick="window.location='/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
-                                    <button onclick="window.location='/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
-								</a>
+							<div class="col-sm-10">
+								<input class="form-check-input" type="radio" name="category" id="category" value="2" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Mujer
+								</label>
 							</div>
 						</div>
+						<label>Nombre:</label>
+						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+							<input type="text" class="form-control" name="name"
+							placeholder="Nombre del Producto" required minlength="3" value="{{ $oneprod->name}}">
+						</h4>
+						<label>Precio:</label>
+						<span class="mtext-106 cl2">
+							<input type="number" min="1" class="form-control" name="price"
+                            placeholder="Ingrese su precio" pattern="[0-9]{1,2}" value="<?=$oneprod->price?>">
+						</span>
+						
+						<p class="stext-102 cl3 p-t-23">
+							<label>Descripcion:</label>
+							<textarea class="form-control" name="description" rows="3" required
+                            minlength="10" placeholder="Descripcion del Producto" ><?=$oneprod->description?></textarea>
+						</p>
+						
+						<!--  -->
+						<p class="stext-102 cl3 p-t-23">
+							<label>Cantidad Disponible:</label>
+							<input type="number" min="1" class="form-control" name="stock"
+                            placeholder="Ingrese su stock" pattern="[0-9]{1,2}" value="<?=$oneprod->stock?>">
+						</p>
+						<div class="form-group">
+							<label for="image">Imagen Actual</label>
+							<img class="product-item-img mx-auto d-flex rounded  mb-3 mb-lg-0" src="../uploads/products/img/<?= $oneprod->image ?>" alt="" width="200" height="140"/>
+							<label for="image">Editar Imagen</label>
+							<input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+						</div>
+						<div class="form-group mt-3">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" name="product" value="<?= $oneprod->id?>" class="btn btn-primary">Agregar Cambios</button>
+							</div>
+						</div>
+						</form>
 					</div>
-					
 				</div>
-				@endforeach
-			</div>
-
-			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Arriba
-				</a>
 			</div>
 		</div>
 	</section>
 
+		
 
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
@@ -857,7 +690,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</div>
 	</div>
 
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->	
 	<script type="text/javascript" src=" {{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src=" {{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
@@ -903,7 +736,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script type="text/javascript" src=" {{ asset('vendor/isotope/isotope.pkgd.min.js') }}"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src=" {{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script>
-	{{-- <script>
+	<script>
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
 		});
@@ -938,7 +771,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			});
 		});
 	
-	</script> --}}
+	</script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src=" {{ asset('vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 	<script>
@@ -960,19 +793,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script type="text/javascript" src=" {{ asset('js/main.js') }}"></script>
 <!--===============================================================================================-->
 
-<script>
-    window.addEventListener("load",function(){
-        document.getElementById("search").addEventListener("keyup",function(){
-            fetch(`/products?search=${document.getElementById("search").value}`,{
-                method:'get'
-                })
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("isotope-grid").innerHTML = html
-                })
-                
-        })
-    })
-</script>
 </body>
 </html>
