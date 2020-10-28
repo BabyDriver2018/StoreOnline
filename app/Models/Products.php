@@ -12,20 +12,20 @@ class Products extends Model
     protected $fillable = ['id', 'name', 'description','price', 'stock','image','idcategory'];
 
     //show all productos
-    public static function index($name){
-
-        if($name)
-        {
-            $allprod=Products::where('id','=',$name)->orWhere('name','like',"%$name%")->take(10)->get();
-        //dd($allprod);
-        return $allprod;
-        }
+    public static function index(){        
             //dd("sjfksj------");
         $allprod = Products::all();
         //var_dump($allprod);exit();
         //dd($allprod[0]->category);
         //dd($allprod);
         return $allprod;
+        
+    }
+    public static function buscador($name){
+        
+        $allprod=Products::where('id','=',$name)->orWhere('name','like',"%$name%")->take(10)->get();
+        //dd($allprod);
+        return $allprod ;
         
     }
     
@@ -106,8 +106,7 @@ class Products extends Model
         //dd($imgprod->image);
         return $imgprod->image;
     }
-    public function category()
-    {
+    public function category(){
         //RELACION DE UNO A MUCHOS; UNA CATEGORIA TIENE MUCHOS PRODUCTOS
         return $this->belongsTo('App\Models\Category','idcategory');
     }

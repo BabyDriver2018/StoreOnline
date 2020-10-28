@@ -12,7 +12,7 @@ class Register extends Model
 {
     protected $table = 'registers';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'name', 'price','genero', 'cantidad','total','idproduct','idcategory'];
+    protected $fillable = ['id', 'name', 'price','genero', 'cantidad','total','totalventa','idproduct','idcategory'];
     public $timestamps=false;
 
     public static function index(){

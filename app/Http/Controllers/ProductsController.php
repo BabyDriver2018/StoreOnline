@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Support\Facades\DB;
 use App\Models\Init;
-use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -20,13 +19,19 @@ class ProductsController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index(Request $request){   
+    public function index(){   
         //retorna los productos,categorias,y un mensaje para la notificacion de cantidad de produtos
         //dd("test");
         return view('adminComponent.index',
-                ['allprod'=>Products::index($request->name)],
-                ['category'=>Category::index()]
+                ['allprod'=>Products::index()],
+                ['message'=>Init::index()]
                 );
+    }
+    public function buscador(Request $request){
+        //dd(Products::buscador($request->name));
+        $allprod = Products::buscador($request->name);
+        //dd($allprod);
+        return view('/adminComponent.product',compact('allprod')); 
     }
     //comming of views addproducts
     public function store(Request $request){
