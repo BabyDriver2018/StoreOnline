@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+	<link rel="icon" type="image/png" href="img/icons/logo-01.jpeg"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href=" {{ asset('vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -39,6 +39,34 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 </head>
 <body class="animsition">
 	
+	@if (!empty($message))
+	<div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 17px; ">
+		<div class="modal-dialog" style="position: relative ; margin: 10% auto;padding: 20px;">
+			<!-- Modal content-->
+			<div class="modal-content" >
+				<div class="modal-header"><button class="close" data-dismiss="modal" type="button"></button>
+					<h4 class="modal-title">NOVEDADES</h4>
+				</div>
+
+				<div class="modal-body">{{ $message }}
+				</div>
+
+				<div class="modal-footer"><button class="btn btn-default" data-dismiss="modal"
+						type="button">Close</button>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript">
+		</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("#myModal").modal();
+			});
+		</script>
+	@endif
 	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
@@ -402,7 +430,9 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
 						<i class=" cl2 m-r-6 fs-15 trans-04 zmdi "></i>
 						<i class=" cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+						<button class="btn btn-primary">
 						 Agregar Productos
+						</button>
 					</div>
 					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
 						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
@@ -414,14 +444,17 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 				<!-- Search product -->
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">
 					<div class="bor8 dis-flex p-l-15">
-						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04 ">
 							<i class="zmdi zmdi-search"></i>
 						</button>
 
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Searchas">
+						<input class="mtext-107 cl2 size-114 plh2 p-r-15 " type="text" id="name" placeholder="Search">
+						
 					</div>	
+					<div class="row" id="respuesta"></div>	
+					<hr>
 				</div>
-				<!-- Filter -->
+				<!-- Add Prod -->
 				<div class="dis-none panel-filter w-full p-t-10">
 					<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
 						<ul class="list-unstyled list-hours mb-5 text-left mx-auto">
@@ -437,9 +470,10 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
                                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categoria:</label>
                                     <select class="custom-select my-2 mr-sm-2" name="category" id="category">
                                         <!-- Show all category of products -->
-                                        @foreach ($category as $categories)
-                                            <option value="<?= $categories->id ?>"><?= $categories->name ?></option>
-                                        @endforeach
+                                        
+											<option value="1">Hombre</option>
+											<option value="2">Mujer</option>
+                                        
                                         <!-- end show products -->
                                     </select>
                                 </div>
@@ -494,50 +528,15 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
                         </ul>
 					</div>
 				</div>
+				
 
 			</div>
 			
 			<!-- all prod -->
-			<div class="row isotope-grid">
-				@foreach ($allprod as $allproduc)
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item  {{ $allproduc->category->name}}">
-					
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="uploads/products/img/<?= $allproduc->image ?>" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Vista Rápida
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									{{$allproduc->name}}
-								</a>
-
-								<span class="stext-105 cl3">
-								 S/	{{ $allproduc->price}}
-								</span>
-								<span class="stext-105 cl3">
-									Stock=  {{ $allproduc->stock}}
-								   </span>
-							</div>
-							<br>
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<br>
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<button onclick="window.location='/<?= $allproduc->id ?>/delete'" method="get" name="delete" type="button" class="btn btn-danger">Eliminar</button>
-                                    <button onclick="window.location='/products/<?= $allproduc->id ?>'" method="get" name="edit" type="button" class="btn btn-primary">Editar</button>
-								</a>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-				@endforeach
+			<div class="row isotope-grid" >
+				
+				@include('adminComponent.product')
+				
 			</div>
 
 			<!-- Load more -->
@@ -856,7 +855,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</div>
 	</div>
-
+	
 <!--===============================================================================================-->	
 	<script type="text/javascript" src=" {{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->
@@ -941,7 +940,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</script> --}}
 <!--===============================================================================================-->
 	<script type="text/javascript" src=" {{ asset('vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-	<script>
+	{{-- <script>
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');
 			$(this).css('overflow','hidden');
@@ -955,24 +954,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				ps.update();
 			})
 		});
-	</script>
+	</script> --}}
 <!--===============================================================================================-->
 	<script type="text/javascript" src=" {{ asset('js/main.js') }}"></script>
 <!--===============================================================================================-->
 
-<script>
-    window.addEventListener("load",function(){
-        document.getElementById("search").addEventListener("keyup",function(){
-            fetch(`/products?search=${document.getElementById("search").value}`,{
-                method:'get'
-                })
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("isotope-grid").innerHTML = html
-                })
-                
-        })
-    })
-</script>
+
 </body>
 </html>

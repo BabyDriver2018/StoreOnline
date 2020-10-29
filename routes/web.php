@@ -26,22 +26,18 @@ Route::get('/home', 'ProductsController@index');
 //Routes views
 Route::get('/registerV', 'RegisterController@index');
 Route::get('/contact', 'StoreController@index');
-
 //product add
 Route::post('/addproducts','ProductsController@store');
-
 //about store
 Route::get('/about','StoreController@about');
-
-
 ///route for  delete product
-Route::get("/{id}/delete","ProductsController@delete");
-
+Route::get('/{id}/delete','ProductsController@delete');
 //route for edit prod
-Route::get("/products/{id}","ProductsController@show");
-Route::post("/products/edit","ProductsController@updateProd");
-Route::get("/products/view/{id}","ProductsController@viewimg");
+Route::get('/products/{id}','ProductsController@show');
+Route::post('/products/edit','ProductsController@updateProd');
 
+//ruta para buscar producto
+Route::get('/product/buscador','ProductsController@buscador');
 
 // add teste buy use a client
 Route::get('/client','ClientController@index');
