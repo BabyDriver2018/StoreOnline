@@ -41,12 +41,15 @@ class Register extends Model
             $last = Register::all()->last();
             //dd($last);
             if($last){
-                $last->totalventa=0;
+                //dd("vXX");
+                $newregister->totalventa =  $last->totalventa + $newregister->total ;
             }
-            dd($last->totalventa);
+            else{
+                //dd("YYY");
+                $last=0;
+                $newregister->totalventa =  $last + $newregister->total ;
+            }
             //dd($last->totalventa);
-            $newregister->totalventa =  $last->totalventa + $aux ;
-            $aux=0;
             $newregister->idproduct = $product_id;
             $newregister->idcategory = $idcategory;
                 $month = Carbon::now();
