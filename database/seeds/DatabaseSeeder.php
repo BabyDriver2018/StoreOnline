@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Category;
-use App\StoreOnlinePermissionSeeder;
+
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +14,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->truncateTables([
-            'category'
+            'category',
+            'users',
+            'roles',
+            
         ]);
         $this->call(CategorySeeder::class);
+        $this->call(RoleSeeder::class);
+
+        
     }
 
     protected function truncateTables(array $tables){

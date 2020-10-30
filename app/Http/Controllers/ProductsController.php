@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Products;
 use Illuminate\Support\Facades\DB;
 use App\Models\Init;
@@ -22,10 +24,20 @@ class ProductsController extends Controller
     public function index(){   
         //retorna los productos,categorias,y un mensaje para la notificacion de cantidad de produtos
         //dd("test");
-        return view('adminComponent.index',
+        $role = DB::table('role_user')->select('id','role_id','user_id')->get();
+        
+        //dd($role[0]->role_id);
+            //dd("sjfksj------");
+        if(Auth::user()->id == $role[0]->role_id){
+            return view('adminComponent.index',
+            ['allprod'=>Products::index()],
+            ['message'=>Init::index()]
+            );     
+        }
+        return view('clientComponent.client',
                 ['allprod'=>Products::index()],
-                ['message'=>Init::index()]
                 );
+        
     }
     public function buscador(Request $request){
         //dd(Products::buscador($request->name));

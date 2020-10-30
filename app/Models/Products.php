@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Models;
+use App\RoleUser;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Products extends Model
 {
@@ -12,13 +14,16 @@ class Products extends Model
     protected $fillable = ['id', 'name', 'description','price', 'stock','image','idcategory'];
 
     //show all productos
-    public static function index(){        
-            //dd("sjfksj------");
-        $allprod = Products::all();
+    public static function index(){     
+
+        //dd(DB::table('role_user')->select('id','role_id','user_id')->get());
+        //dd(Auth::user()->name);
+        
+            $allprod = Products::all();
+            return $allprod;
         //var_dump($allprod);exit();
         //dd($allprod[0]->category);
         //dd($allprod);
-        return $allprod;
         
     }
     public static function buscador($name){
