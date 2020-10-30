@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Register;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -62,6 +63,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    public static function index(){
+        $allregister = Register::all();
+
+        return view('adminComponent.register',$allregister);
+    }
+
     protected function create(array $data)
     {
         return User::create([

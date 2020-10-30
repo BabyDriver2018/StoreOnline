@@ -20,7 +20,7 @@ class Register extends Model
 
         return $allregister;
     }
-    
+
     public static function addregister($request,$product_id,$idcategory){
         //encontramos el producto
         //dd($idcategory);
@@ -36,6 +36,7 @@ class Register extends Model
             $newregister->price =$newproduct['price'];
             $newregister->count =$request->input('cantidad');
             $newregister->total =($newproduct['price'])*($request->input('cantidad'));
+            $aux=$newregister->total;
             // calculamos las ventas totales
             $last = Register::all()->last();
             //dd($last);
@@ -70,7 +71,7 @@ class Register extends Model
 
     }
     public static function registermonth($request){
-        
+
         $newregister = Register::all()->where('month',$request->month)->where('year',$request->year);
         //dd($newregister);
 
