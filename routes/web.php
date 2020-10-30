@@ -39,72 +39,11 @@ Route::post('/products/edit','ProductsController@updateProd');
 //ruta para buscar producto
 Route::get('/product/buscador','ProductsController@buscador');
 
-// add teste buy use a client
+//ruta para la simulacion de la comprar de un producto
 Route::get('/client','ClientController@index');
 Route::get('/client/{productbuy_id}/buy','ClientController@showProd');
 
-//route search registros use a client
+//rutas para los registros y busar los registros
 Route::post('/register/{product_id}/{idcategory}/buy','RegisterController@store');
 //route for see register of and using filter of month and year
 Route::post('/registervent','RegisterController@indexSelect');
-
-
-//test of roles
-Route::get('/test-roles', function () {
-/*
-    $user = User::find(2);
-    $user->roles()->sync([2]);
-    return $user->roles;
-*/
-    /*
-     return Role::create([
-         'name' => 'cliente',
-         'slug' => 'client',
-         'description' => 'Cliente del sistema',
-         'full-acces' => 'no',
-         ]);
-    */
-    /*
-    return
-    Role::create([
-     'name' => 'admin',
-     'slug' => 'admin',
-     'description' => 'Administrador del sistema',
-     'full-acces' => 'yes',
-     ]);
-*/
-    //ASSING ROLE OF ADMIN TO role
-/*
-    $user = User::find(1);
-    $user->roles()->sync([1]);
-    return $user->roles;
-*/
-    //create permission for roles
-/*
-    return Permission::create([
-        'name' => 'View Products',
-        'slug' => 'products.index',
-        'description' => 'el cliente vista los productos',
-        ]);
-*/
-
-return Permission::create([
-    'name' => 'Admin View Products',
-    'slug' => 'products.index',
-    'description' => 'el admin vista los productos',
-    ]);
-
-/*
-    $role = Role::find(1);
-    $role->roles()->sync([1]);
-    return $role->permissions;
-*/
-
-/*
-    $role = Role::find(1);
-    $role->permissions()->sync([1]);
-    return $role->permissions;
-*/
-
-
-});
