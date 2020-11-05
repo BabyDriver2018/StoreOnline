@@ -19,8 +19,27 @@ class RegisterController extends Controller
         $this->middleware('auth');
     }
     public function index()
-    {
-        return view('adminComponent.register',['allregister'=>Register::index()],['message_of_prod_stock'=>Init::index()]);
+    {   
+        $allregister = Register::index();
+        //dd(sizeof($allregister));
+        //dd($allregister);
+        $message = Init::index();
+        //dd($allregister[0]->totalventa);
+        $tamanioallregister=sizeof($allregister);
+        //dd($tamanioallregister);
+        switch ($tamanioallregister) {
+            case 0:
+                $totalventa = 0 ;
+                return view('adminComponent.register',compact('allregister','message','totalventa'));
+                break;
+            
+            default:
+                $totalventa = $allregister[$tamanioallregister-1]->totalventa;
+                return view('adminComponent.register',compact('allregister','message','totalventa'));
+                break;
+        }
+        
+        
     }
 
     /**

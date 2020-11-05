@@ -19,10 +19,10 @@ class StoreController extends Controller
     public function index()
     {
         //
-        return view(Store::index(),['message_of_prod_stock'=>Init::index()]);
+        return view(Store::index(),['message'=>Init::index()]);
     }
     public function about(){
-        return view('admincomponent.about');
+        return view('adminComponent.about',['message'=>Init::index()]);
     }
 
     

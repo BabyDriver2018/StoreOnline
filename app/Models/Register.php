@@ -17,7 +17,7 @@ class Register extends Model
 
     public static function index(){
         $allregister = Register::all();
-
+        
         return $allregister;
     }
 

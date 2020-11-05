@@ -86,7 +86,7 @@ class ProductsController extends Controller
 
     public function show($id){
         //dd($id);
-        return view('adminComponent.edit',['oneprod'=>Products::show($id)]);
+        return view('adminComponent.edit',['oneprod'=>Products::show($id)],['message'=>Init::index()]);
 
     }
 
