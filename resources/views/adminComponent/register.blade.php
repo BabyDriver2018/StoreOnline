@@ -126,7 +126,7 @@
 						<div class="menu-desktop">
 							<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">{{ Auth::user()->name }}</a>
+								<a href="{{url('/home')}}">{{ Auth::user()->name }}</a>
 								<ul class="sub-menu">
 									<li>
 										<a href="{{ route('logout') }}" onclick="event.preventDefault();

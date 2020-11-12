@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Init;
-use App\Models\Products;
+use App\Models\Client;
 use App\Models\Register;
 use Illuminate\Http\Request;
 
@@ -61,10 +61,13 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$product_id,$idcategory)
+
+     //Registrando compras de Clientes
+    public function buy(Request $request,$product_id,$idcategory)
     {
-        
-        return view('clientComponent.client',[Register::addregister($request,$product_id,$idcategory)]);
+        Register::addregister($request,$product_id,$idcategory);
+        $allprod = Client::index();
+        return redirect('/home');
     }
 
 }

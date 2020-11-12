@@ -2,7 +2,7 @@
 
 namespace App\Models;
 use Carbon\Carbon;
-use App\Models\Products;
+use App\Models\Product;
 
 use Illuminate\Support\Facades\DB;
 
@@ -24,7 +24,7 @@ class Register extends Model
     public static function addregister($request,$product_id,$idcategory){
         //encontramos el producto
         //dd($idcategory);
-        $newproduct = Products::find($product_id);
+        $newproduct = Product::find($product_id);
         //validamos q haya stock, aunq previamente en el html se haya hecho eso
         if($newproduct->stock >= $request->input('cantidad')){
             //se reduce el stock
@@ -74,7 +74,6 @@ class Register extends Model
 
         $newregister = Register::all()->where('month',$request->month)->where('year',$request->year);
         //dd($newregister);
-
         return $newregister;
     }
 }

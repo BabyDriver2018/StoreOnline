@@ -134,7 +134,7 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 						<div class="menu-desktop">
 							<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">{{ Auth::user()->name }}</a>
+								<a href="{{url('/home')}}">{{ Auth::user()->name }}</a>
 								<ul class="sub-menu">
 									<li>
 										<a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -483,7 +483,7 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
                                     <label class="control-label col-sm-2">Nombre:</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="name"
-                                            placeholder="Nombre del Producto" required minlength="3">
+                                            placeholder="Nombre del Producto" required minlength="3" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -497,14 +497,14 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
                                     <label class="control-label col-sm-2">Precio:</label>
                                     <div class="col-sm-10">
                                         <input type="number" min="1" class="form-control" name="price"
-                                            placeholder="Ingrese su precio" pattern="[0-9]{1,2}">
+                                            placeholder="Ingrese su precio" pattern="[0-9]{1,2}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Stock:</label>
                                     <div class="col-sm-10">
                                         <input type="number" min="1" class="form-control" name="stock"
-                                            placeholder="Ingrese su stock" pattern="[0-9]{1,2}">
+                                            placeholder="Ingrese su stock" pattern="[0-9]{1,2}" required>
                                     </div>
                                 </div>
 

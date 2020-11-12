@@ -1,40 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('') }}</div>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-    <title>LEYKER</title>
-
-    <!-- Bootstrap core CSS -->
-    <link type="text/css" href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Custom styles for this template -->
-    <link type="text/css" href="{{ asset('css/business-casual.css') }}" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-
-    @if (!empty($product)){
-
-        <section class="page-section cta">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner text-center rounded">
+                        {{ __('You are logged in!') }}
+                    </div>
+                    <div>
                             <h2 class="section-heading mb-7">
                                 <span class="section-heading-upper">Detalles de su compra</span>
                             </h2>
@@ -77,26 +59,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-        }
-    @else
-        <h1 class="text-center navbar-nav mx-auto ">
-
-            No hay productos
-        </h1>
-
-    @endif
-
-    <footer class="footer text-faded text-center py-5">
-        <div class="container">
-            <p class="m-0 small">Copyright &copy; Your Website 2020</p>
         </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+    </div>
+@endsection
