@@ -10,4 +10,5 @@ class Store extends Model
     public static function index(){
         return "adminComponent.contact";
     }
+    
 }

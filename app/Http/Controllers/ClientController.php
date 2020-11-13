@@ -13,12 +13,7 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-        return view('clientComponent.client',['allprod'=>Client::index()]);
-    }
-
+    
     public function showProd($productbuy_id){
         //dd($productbuy_id);
         return view('clientComponent.buyclient',['product'=>Client::showprod($productbuy_id)]);

@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        <label> Hola {{ Auth::user()->name }} Bienvenido a su cuenta!</label>
                     </div>
                     <div>
                         @if (!empty($allprod))

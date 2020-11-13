@@ -9,7 +9,8 @@ class Client extends Model
 {
     //
     public static function index(){
-        $allprod=Product::all();
+        $allprod=Product::all()->where('stock','>',0);
+        
         return $allprod;
     }
      //Method for see producto test buy client

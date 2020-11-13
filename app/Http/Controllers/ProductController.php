@@ -6,7 +6,6 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Init;
-use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -15,28 +14,7 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){   
-        //sacamos los datos de la tabla role_user q tiene las id de la tabla role y users
-        $role = DB::table('role_user')->select('id','role_id','user_id')->get();
-        
-        //dd($role[0]->role_id);
-        //dd("sjfksj------");
-        //se compara si es el administrador del sistema o  no
-        //$value = Auth::user()->id == $role[0]->role_id;
-        //dd($value);
-        if(Auth::user()->id == $role[0]->role_id){
-            //en caso q sea cierto 
-            //retorna los productos,categorias,y un mensaje para la notificacion de cantidad de produtos
-            return view('adminComponent.index',
-            ['allprod'=>Product::index()],
-            ['message'=>Init::index()]
-            );     
-        }
-        return view('clientComponent.client',
-                ['allprod'=>Product::index()],
-                );
-
-    }
+    
     public function buscador(Request $request){
         //dd(Product::buscador($request->name));
         $allprod = Product::buscador($request->name);

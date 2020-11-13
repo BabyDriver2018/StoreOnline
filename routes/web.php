@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 //Route for login and register
 Auth::routes();
-Route::get('/home', 'ProductController@index');
+//ruta para definir a cual vista se ira al momento de iniciar sesion
+Route::get('/home', 'HomeController@index');
 
 //Routes views
 Route::get('/registerV', 'RegisterController@index');
