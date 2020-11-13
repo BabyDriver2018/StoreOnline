@@ -184,7 +184,7 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
 				
 
 				<li>
-					<a href="{{url('/register')}}">Registro de Ventas</a>
+					<a href="{{url('/registerV')}}">Registro de Ventas</a>
 				</li>
 
 				<li>

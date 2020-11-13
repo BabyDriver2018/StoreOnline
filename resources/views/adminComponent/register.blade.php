@@ -174,7 +174,7 @@
 				</li>
 
 				<li>
-					<a href="{{url('/register')}}">Registro de Ventas</a>
+					<a href="{{url('/registerV')}}">Registro de Ventas</a>
 				</li>
 
 				<li>
