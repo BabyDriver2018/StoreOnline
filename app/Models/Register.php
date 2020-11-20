@@ -66,7 +66,7 @@ class Register extends Model
             return "Se registro la compra con exito!";
         }
         else {
-            return "Algo anda mal!!";
+            return "No existen productos!!";
         }
 
     }

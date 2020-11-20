@@ -14,7 +14,8 @@ class Product extends Model
 
     public static function index(){     
 
-        $allprod = Product::all();
+        $allprod = Product::orderBy('id','DESC')->get();
+        //dd($allprod);
         //dd($allprod);
         return $allprod; 
 

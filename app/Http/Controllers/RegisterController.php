@@ -55,18 +55,11 @@ class RegisterController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
      //Registrando compras de Clientes
     public function buy(Request $request,$product_id,$idcategory)
     {
-        Register::addregister($request,$product_id,$idcategory);
-        $allprod = Client::index();
+        $message = Register::addregister($request,$product_id,$idcategory);
+        
         return redirect('/home');
     }
 
