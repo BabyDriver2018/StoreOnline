@@ -87,9 +87,9 @@
                 <div class="links">
                     <a target="_blank" href="https://github.com/BabyDriver2018/StoreOnline">Git Hub Docs</a>
                     <a target="_blank" href="https://www.facebook.com/profile.php?id=100034981650405">Facebook Brayan Mendoza</a>
+                    <a target="_blank" style="color:black; background-color:red" href="{{ url('/client')}}">Ver Productos sin Registrarse</a>
                     <a target="_blank" href="https://www.facebook.com/tonnnnnn1/">Facebook Anthony Mitac</a>
-                    <a target="_blank" href="https://chat.whatsapp.com/GorPNFIQ3DNJZ5i8Raz10R">Ayuda Whatsapp</a>
-                    <a target="_blank" href="https://github.com/laravel/laravel">GitHub</a>
+                    <a target="_blank" href="https://github.com/laravel/laravel">GitHub Laravel</a>
                 </div>
             </div>
         </div>
